@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_utility_contact_infos",
+  "info": {
+    "displayName": "Contact Info",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "FullName": {
+      "type": "string"
+    },
+    "DOB": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "richtext"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Phone": {
+      "type": "string"
+    },
+    "Freelance": {
+      "type": "enumeration",
+      "enum": [
+        "Available",
+        "Not Available"
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blocks",
+  "info": {
+    "singularName": "block",
+    "pluralName": "blocks",
+    "displayName": "Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": false
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Components": {
+      "type": "dynamiczone",
+      "components": [
+        "content.title-text",
+        "content.c02-personal",
+        "content.c03-skill-set",
+        "content.c04-lists",
+        "content.c04-image-gallery",
+        "content.c05-timeline",
+        "content.c06-references",
+        "content.c07-interests"
+      ]
+    },
+    "Caption": {
+      "type": "string",
+      "required": false
+    },
+    "Order": {
+      "type": "integer",
+      "unique": true,
+      "min": 1,
+      "required": false
+    }
+  }
+}

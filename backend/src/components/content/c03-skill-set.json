@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_content_c03_skill_sets",
+  "info": {
+    "displayName": "C03 Skill Set",
+    "icon": "basketball-ball"
+  },
+  "options": {},
+  "attributes": {
+    "PrimaryTitle": {
+      "type": "string"
+    },
+    "Primary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.skill"
+    },
+    "SecondaryTitle": {
+      "type": "string"
+    },
+    "Secondary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.skill"
+    }
+  }
+}

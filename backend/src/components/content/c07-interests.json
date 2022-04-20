@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_c07_interests",
+  "info": {
+    "displayName": "C07 Interests",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "Interests": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.icon-and-title"
+    }
+  }
+}

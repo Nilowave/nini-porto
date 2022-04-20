@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_c05_timelines",
+  "info": {
+    "displayName": "C05 Timeline",
+    "icon": "map-signs"
+  },
+  "options": {},
+  "attributes": {
+    "Timeline": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.timeline-item"
+    }
+  }
+}

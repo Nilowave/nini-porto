@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_title_texts",
+  "info": {
+    "displayName": "C01 Text CTA",
+    "icon": "font",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext"
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utility.cta"
+    }
+  }
+}

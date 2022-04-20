@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_c06_references",
+  "info": {
+    "displayName": "C06 References",
+    "icon": "quote-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "References": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.reference"
+    }
+  }
+}

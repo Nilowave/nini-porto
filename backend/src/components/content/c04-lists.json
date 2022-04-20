@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_content_c04_lists",
+  "info": {
+    "displayName": "C04 Lists",
+    "icon": "clipboard-list"
+  },
+  "options": {},
+  "attributes": {
+    "PrimaryTitle": {
+      "type": "string"
+    },
+    "PrimaryList": {
+      "type": "richtext"
+    },
+    "SecondaryTitle": {
+      "type": "string"
+    },
+    "SecondaryList": {
+      "type": "richtext"
+    }
+  }
+}

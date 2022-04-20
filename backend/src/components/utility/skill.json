@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_utility_skills",
+  "info": {
+    "displayName": "Skill",
+    "icon": "apple-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Percentage": {
+      "type": "integer",
+      "max": 100,
+      "min": 0
+    },
+    "Display": {
+      "type": "enumeration",
+      "enum": [
+        "Bar",
+        "Circle"
+      ]
+    }
+  }
+}

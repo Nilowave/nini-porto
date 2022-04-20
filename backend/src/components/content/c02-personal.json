@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_content_c02_personals",
+  "info": {
+    "displayName": "C02 Personal Info",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "PrimaryTitle": {
+      "type": "string"
+    },
+    "Contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utility.contact-info"
+    },
+    "SecondaryTitle": {
+      "type": "string"
+    },
+    "Languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.skill"
+    }
+  }
+}

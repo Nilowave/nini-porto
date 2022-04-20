@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_utility_timeline_items",
+  "info": {
+    "displayName": "Timeline Item",
+    "icon": "feather-alt"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "FromDate": {
+      "type": "date"
+    },
+    "ToDate": {
+      "type": "date"
+    }
+  }
+}

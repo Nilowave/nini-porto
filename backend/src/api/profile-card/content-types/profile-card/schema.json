@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "profile_cards",
+  "info": {
+    "singularName": "profile-card",
+    "pluralName": "profile-cards",
+    "displayName": "Profile Card",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Social": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social.social-media"
+    }
+  }
+}

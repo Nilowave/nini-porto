@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_social_social_medias",
+  "info": {
+    "displayName": "Social Media",
+    "icon": "share-alt-square",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Icon": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "twitter",
+        "linkedin",
+        "instagram"
+      ]
+    }
+  }
+}
