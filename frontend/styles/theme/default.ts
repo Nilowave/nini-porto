@@ -1,11 +1,15 @@
 import hexToRgba from 'hex-to-rgba';
 
-export const color = {
+export const colors = {
   white: '#fff',
+  black: '#000',
+  offWhite: '#f3f3f3',
+  cottonGrey: '#e1e1e1',
+  primary: '#c0e3e7',
 };
 
 export const theme = {
-  color,
+  colors,
   boxShadow: {
     A: '0px 4px 10px rgba(0, 0, 0, 0.25)',
     B: '1px 1px 5px rgba(0, 0, 0, 0.1)',
@@ -20,8 +24,8 @@ export const theme = {
 };
 
 export type ThemeType = typeof theme;
-export type ColorType = ThemeType['color'][keyof ThemeType['color']];
-export type ColorKey = keyof ThemeType['color'];
+export type ColorType = ThemeType['colors'][keyof ThemeType['colors']];
+export type ColorKey = keyof ThemeType['colors'];
 
 // Overwrite styled-components DefaultTheme
 declare module 'styled-components' {

@@ -17,7 +17,8 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importsNotUsedAsValues": "preserve",
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "baseUrl": "./"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

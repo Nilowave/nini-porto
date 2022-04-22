@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "s02_footers",
+  "info": {
+    "singularName": "s02-footer",
+    "pluralName": "s02-footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Text": {
+      "type": "richtext"
+    }
+  }
+}

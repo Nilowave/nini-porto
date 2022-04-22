@@ -1,36 +1,30 @@
 {
   "kind": "singleType",
-  "collectionName": "profile_cards",
+  "collectionName": "s03_profile_cards",
   "info": {
-    "singularName": "profile-card",
-    "pluralName": "profile-cards",
+    "singularName": "s03-profile-card",
+    "pluralName": "s03-profile-cards",
     "displayName": "Profile Card",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "Title": {
       "type": "string"
     },
-    "Photo": {
+    "Image": {
       "type": "media",
       "multiple": true,
       "required": false,
       "allowedTypes": [
         "images"
       ]
-    },
-    "Social": {
-      "type": "component",
-      "repeatable": true,
-      "component": "social.social-media"
     }
   }
 }

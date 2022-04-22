@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "s04_social_sharings",
+  "info": {
+    "singularName": "s04-social-sharing",
+    "pluralName": "s04-social-sharings",
+    "displayName": "Social Sharing",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Platforms": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social.social-media"
+    }
+  }
+}

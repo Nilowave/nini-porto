@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -27,11 +27,11 @@
     "Components": {
       "type": "dynamiczone",
       "components": [
-        "content.title-text",
+        "content.c01-text-cta",
         "content.c02-personal",
         "content.c03-skill-set",
-        "content.c04-lists",
         "content.c04-image-gallery",
+        "content.c04-lists",
         "content.c05-timeline",
         "content.c06-references",
         "content.c07-interests"
@@ -45,7 +45,10 @@
       "type": "integer",
       "unique": true,
       "min": 1,
-      "required": false
+      "required": false,
+      "customFieldConfig": {
+        "fieldRenderer": "custom_order_field"
+      }
     }
   }
 }

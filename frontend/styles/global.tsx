@@ -1,5 +1,6 @@
 import { normalize } from 'polished';
 import { createGlobalStyle } from 'styled-components';
+import { typeStyle } from './typeStyle';
 // import { typeStyle } from './typeStyle';
 
 export const GlobalStyle = createGlobalStyle`
@@ -16,7 +17,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-size: 1.6rem;
+    ${typeStyle.body01};
+    background-color: ${({ theme }) => theme.colors.offWhite};
   }
 
   html, body {
@@ -77,5 +79,26 @@ export const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0;
+  }
+
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+  }
+
+  ::selection {
+    color: #010101;
+    background-color: #c0e3e7;
   }
 `;

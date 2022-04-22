@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "axios": "^0.26.1",
     "hex-to-rgba": "^2.0.1",
     "next": "12.1.5",
     "polished": "^4.2.2",
