@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["node_modules", "src"]
+      },
+      "typescript": {
+        "directory": "./src"
+      }
+    }
+  }
 }

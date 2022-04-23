@@ -18,8 +18,8 @@
     "experimentalDecorators": true,
     "importsNotUsedAsValues": "preserve",
     "noFallthroughCasesInSwitch": false,
-    "baseUrl": "./"
+    "baseUrl": "./src"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
   "exclude": ["node_modules"]
 }
