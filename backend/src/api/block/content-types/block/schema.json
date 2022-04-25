@@ -49,6 +49,11 @@
       "customFieldConfig": {
         "fieldRenderer": "custom_order_field"
       }
+    },
+    "Join": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::block.block"
     }
   }
 }

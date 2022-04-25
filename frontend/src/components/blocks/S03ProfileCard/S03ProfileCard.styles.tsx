@@ -17,7 +17,7 @@ export const ContentWrapper = styled.div`
   padding: 3rem 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
+  ${respondTo(MediaQuery.MIN_768)} {
     width: 29rem;
     margin-right: 3rem;
     box-shadow: -4px 7px 15px 1px rgb(0 0 0 / 20%);

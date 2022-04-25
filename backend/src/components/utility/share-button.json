@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_utility_share_buttons",
+  "info": {
+    "displayName": "Share Button",
+    "icon": "share-alt"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}

@@ -2,7 +2,8 @@
   "collectionName": "components_content_c04_lists",
   "info": {
     "displayName": "C04 Lists",
-    "icon": "clipboard-list"
+    "icon": "clipboard-list",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -17,6 +18,11 @@
     },
     "SecondaryList": {
       "type": "richtext"
+    },
+    "IconList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.list-item"
     }
   }
 }

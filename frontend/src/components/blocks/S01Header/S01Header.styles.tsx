@@ -8,11 +8,11 @@ export const StyledS01Header = styled.header`
   padding: 2rem 0;
   background-color: ${({ theme }) => theme.colors.white};
 
-  @media ${respondTo(MediaQuery.MAX_767)} {
+  ${respondTo(MediaQuery.MAX_767)} {
     border-bottom: solid 1px ${({ theme }) => theme.colors.cottonGrey};
   }
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
+  ${respondTo(MediaQuery.MIN_768)} {
     background-color: transparent;
   }
 `;
@@ -21,8 +21,8 @@ export const StyledContainer = styled(Container)`
   display: flex;
   align-items: center;
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
-    height: 6.4rem;
+  ${respondTo(MediaQuery.MIN_768)} {
+    height: 5rem;
   }
 `;
 

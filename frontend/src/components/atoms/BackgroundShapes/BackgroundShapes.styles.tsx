@@ -12,7 +12,7 @@ export const StyledBackgroundShapes = styled.div`
   height: 100vh;
   pointer-events: none;
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
+  ${respondTo(MediaQuery.MIN_768)} {
     display: block;
   }
 `;

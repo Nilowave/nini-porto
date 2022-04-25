@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 import { T01Blocks } from 'components/templates/T01Blocks/T01Blocks';
 import { S01Header } from 'components/blocks/S01Header/S01Header';
-import { Container, DesktopPadding, Wrapper } from '../styles/layout';
+import { Container, DesktopPadding, Wrapper } from 'styles/layout';
 import { S03ProfileCard } from 'components/blocks/S03ProfileCard/S03ProfileCard';
 import { S05SideNavigation } from 'components/blocks/S05SideNavigation/S05SideNavigation';
 import { BackgroundShapes } from 'components/atoms/BackgroundShapes/BackgroundShapes';
 import { S02Footer } from 'components/blocks/S02Footer/S02Footer';
-import { api, ApiCollection, ApiData, ApiAttributes } from 'util/api';
+import { api, ApiCollection, ApiAttributes } from 'util/api';
 
 const Home = ({
   logo,
@@ -58,17 +58,22 @@ export const getStaticProps = async () => {
   const footer = (await api.get(FOOTER_PATH)) as ApiAttributes;
   const profile = (await api.get(PROFILE_PATH)) as ApiAttributes;
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
-  const navBlocks = (await api.get(NAV_BLOCKS_PATH, {
-    isCollection: true,
-  })) as ApiCollection;
-  const blocks = (await api.get(BLOCKS_PATH, {
-    isCollection: true,
-  })) as ApiCollection;
 
-  console.log('get');
+  const navBlocks = (
+    (await api.get(NAV_BLOCKS_PATH, {
+      isCollection: true,
+    })) as ApiCollection
+  ).sort((a, b) => {
+    return a.Order - b.Order;
+  });
 
-  // console.log(socialData);
-  //
+  const blocks = (
+    (await api.get(BLOCKS_PATH, {
+      isCollection: true,
+    })) as ApiCollection
+  ).sort((a, b) => {
+    return a.Order - b.Order;
+  });
 
   const logo: ApiAttributes = headerData.Logo.data.attributes;
 

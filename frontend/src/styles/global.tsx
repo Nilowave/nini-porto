@@ -102,8 +102,28 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #c0e3e7;
   }
 
-  #__next {
+  /* #__next {
     overflow-x: hidden;
     height: 100%;
+  } */
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 20;
+
+
+    &.filled {
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 700,
+      'GRAD' 0,
+      'opsz' 20
+
+    }
+    
   }
+
 `;

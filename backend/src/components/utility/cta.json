@@ -2,7 +2,8 @@
   "collectionName": "components_utility_ctas",
   "info": {
     "displayName": "CTA",
-    "icon": "link"
+    "icon": "link",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,9 @@
     },
     "Link": {
       "type": "string"
+    },
+    "ShareButton": {
+      "type": "boolean"
     }
   }
 }

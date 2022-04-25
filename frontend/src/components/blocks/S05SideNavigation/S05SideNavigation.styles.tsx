@@ -15,7 +15,7 @@ export const ContentWrapper = styled.nav`
   justify-content: center;
   z-index: 10;
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
+  ${respondTo(MediaQuery.MIN_768)} {
     flex-direction: column;
     gap: 1rem;
   }

@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
-import { SitePadding } from 'styles/layout';
 import { ApiCollection } from 'util/api';
+import { blockComponents } from 'util/cmsComponents';
+import slugify from 'slugify';
 import * as S from './T01Blocks.styles';
 
 type BlockAttributes = {
@@ -24,9 +25,23 @@ interface T01BlocksProps {
 export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
   return (
     <S.StyledT01Blocks>
-      <SitePadding>
-        <div>T01Blocks</div>
-      </SitePadding>
+      {blocks.map((item, index) => (
+        <S.StyledBlock
+          key={`block-${index}-${item.Title}`}
+          id={item.Caption && slugify(item.Caption, { lower: true })}
+        >
+          <S.StyledTitle>{item.Title}</S.StyledTitle>
+          {item.Components.map((component: any) => {
+            const componentKey = component.__component.split('.')[1];
+            const BlockComponent = blockComponents[componentKey as keyof typeof blockComponents];
+            return BlockComponent ? (
+              <BlockComponent data={component} key={`comp-${component}-${component.__component}`} />
+            ) : (
+              <p key={`comp-${component}-${component.__component}`}>{component.__component}</p>
+            );
+          })}
+        </S.StyledBlock>
+      ))}
     </S.StyledT01Blocks>
   );
 };

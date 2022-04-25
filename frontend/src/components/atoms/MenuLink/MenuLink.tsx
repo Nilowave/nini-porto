@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ReactElement, useRef, useState } from 'react';
+import React, { ReactElement, useRef, useState } from 'react';
 import * as S from './MenuLink.styles';
 
 export type MenuItem = {
@@ -10,9 +10,10 @@ export type MenuItem = {
 
 interface MenuLinkProps {
   item: MenuItem;
+  onClick?: (event: React.MouseEvent) => void;
 }
 
-export const MenuLink = ({ item }: MenuLinkProps): ReactElement => {
+export const MenuLink = ({ item, onClick }: MenuLinkProps): ReactElement => {
   const captionRef = useRef<HTMLDivElement | null>(null);
   const linkRef = useRef<HTMLAnchorElement | null>(null);
   const [alignCaption, setAlignCaption] = useState<'left' | 'right'>('left');
@@ -32,7 +33,12 @@ export const MenuLink = ({ item }: MenuLinkProps): ReactElement => {
   };
 
   return (
-    <S.StyledMenuLink onMouseEnter={handleMouseEnter} ref={linkRef}>
+    <S.StyledMenuLink
+      onMouseEnter={handleMouseEnter}
+      ref={linkRef}
+      href={item.anchor}
+      onClick={onClick}
+    >
       <S.StyledImageWrapper>
         <Image alt={`Menu ${item.title}`} src={item.icon} layout="fill" objectFit="cover" />
       </S.StyledImageWrapper>

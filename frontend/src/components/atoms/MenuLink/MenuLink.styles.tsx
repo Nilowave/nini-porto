@@ -8,7 +8,7 @@ export const StyledImageWrapper = styled.div`
   height: 3.5rem;
   margin: 1rem 0;
 
-  @media ${respondTo(MediaQuery.MIN_768)} {
+  ${respondTo(MediaQuery.MIN_768)} {
     width: 3rem;
     height: 3rem;
   }
