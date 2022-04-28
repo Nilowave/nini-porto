@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_c05_image_galleries",
+  "info": {
+    "displayName": "C05 Image Gallery",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Gallery": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.image"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

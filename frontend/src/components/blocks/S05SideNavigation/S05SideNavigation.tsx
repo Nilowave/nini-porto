@@ -35,7 +35,8 @@ export const S05SideNavigation = ({ data }: S05SideNavigationProps): ReactElemen
         {data.map((item) => {
           const icon = item.Icon;
 
-          if (!icon.data) return null;
+          if (!icon) return null;
+          if (!icon || !icon.data) return null;
 
           const iconUrl = `${process.env.NEXT_PUBLIC_HOST}${icon.data.attributes.url}`;
           const menuItem: MenuItem = {

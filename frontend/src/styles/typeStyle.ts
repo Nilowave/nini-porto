@@ -24,6 +24,11 @@ export const typeStyle = {
     line-height: 1.875;
     letter-spacing: 0.128rem;
   `,
+  body02: css`
+    font-size: 1.4rem;
+    line-height: 1.375;
+    letter-spacing: 0.128rem;
+  `,
   button: css`
     font-size: 1.5rem;
     font-weight: 700;

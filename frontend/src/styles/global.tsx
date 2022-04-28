@@ -1,13 +1,12 @@
 import { normalize } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 import { typeStyle } from './typeStyle';
-// import { typeStyle } from './typeStyle';
 
 export const GlobalStyle = createGlobalStyle`
-  ${normalize()}
+  ${normalize()};
 
   html {
-    font-family: ${({ theme }) => theme.fonts.quicksand}
+    font-family: ${({ theme }) => theme.fonts.quicksand};
     -webkit-text-size-adjust: 100%;
     box-sizing: border-box;
     font-size: 62.5%;
@@ -94,18 +93,12 @@ export const GlobalStyle = createGlobalStyle`
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    user-drag: none;
   }
 
   ::selection {
     color: #010101;
-    background-color: #c0e3e7;
+    background-color: ${({ theme }) => theme.colors.primary};
   }
-
-  /* #__next {
-    overflow-x: hidden;
-    height: 100%;
-  } */
 
   .material-symbols-outlined {
     font-variation-settings:
@@ -123,7 +116,5 @@ export const GlobalStyle = createGlobalStyle`
       'opsz' 20
 
     }
-    
   }
-
-`;
+  `;

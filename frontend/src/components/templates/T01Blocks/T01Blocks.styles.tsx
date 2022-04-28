@@ -30,3 +30,9 @@ export const StyledTitle = styled.h2`
   margin-bottom: 5rem;
   text-transform: uppercase;
 `;
+
+export const JoinBlock = styled.div`
+  border-top: 1px solid ${({ theme }) => theme.colors.cottonGrey};
+  padding-top: 4rem;
+  margin-top: 4rem;
+`;

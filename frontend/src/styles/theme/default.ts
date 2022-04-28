@@ -11,10 +11,6 @@ export const colors = {
 
 export const theme = {
   colors,
-  boxShadow: {
-    A: '0px 4px 10px rgba(0, 0, 0, 0.25)',
-    B: '1px 1px 5px rgba(0, 0, 0, 0.1)',
-  },
   fonts: {
     quicksand: 'Quicksand, sans-serif;',
   },
@@ -28,7 +24,6 @@ export type ThemeType = typeof theme;
 export type ColorType = ThemeType['colors'][keyof ThemeType['colors']];
 export type ColorKey = keyof ThemeType['colors'];
 
-// Overwrite styled-components DefaultTheme
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}
 }

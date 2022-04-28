@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_content_c07_interests",
+  "collectionName": "components_content_c08_interests",
   "info": {
-    "displayName": "C07 Interests",
-    "icon": "feather"
+    "displayName": "C08 Interests",
+    "icon": "gamepad"
   },
   "options": {},
   "attributes": {
-    "Interests": {
+    "Interest": {
       "type": "component",
       "repeatable": true,
       "component": "utility.icon-and-title"

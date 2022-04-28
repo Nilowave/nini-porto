@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_content_c10_contact_forms",
+  "info": {
+    "displayName": "C10 Contact Form",
+    "icon": "mail-bulk",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Fields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.input-field"
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_content_c05_timelines",
+  "collectionName": "components_content_c06_timelines",
   "info": {
-    "displayName": "C05 Timeline",
-    "icon": "map-signs"
+    "displayName": "C06 Timeline",
+    "icon": "stream"
   },
   "options": {},
   "attributes": {

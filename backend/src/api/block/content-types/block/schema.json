@@ -30,11 +30,13 @@
         "content.c01-text-cta",
         "content.c02-personal",
         "content.c03-skill-set",
-        "content.c04-image-gallery",
         "content.c04-lists",
-        "content.c05-timeline",
-        "content.c06-references",
-        "content.c07-interests"
+        "content.c05-image-gallery",
+        "content.c06-timeline",
+        "content.c07-references",
+        "content.c08-interests",
+        "content.c09-calendar",
+        "content.c10-contact-form"
       ]
     },
     "Caption": {

@@ -12,7 +12,6 @@ import { api, ApiCollection, ApiAttributes } from 'util/api';
 const Home = ({
   logo,
   blocks,
-  navBlocks,
   profile,
   social,
   footer,
@@ -33,7 +32,7 @@ const Home = ({
         <DesktopPadding>
           <Container>
             <Wrapper>
-              <S05SideNavigation data={navBlocks} />
+              <S05SideNavigation data={blocks} />
               <S03ProfileCard data={profile} social={social} />
               <T01Blocks blocks={blocks} />
             </Wrapper>
@@ -47,25 +46,16 @@ const Home = ({
 };
 
 export const getStaticProps = async () => {
-  const HEADER_PATH = 's01-header?populate=*';
-  const FOOTER_PATH = 's02-footer?populate=*';
-  const PROFILE_PATH = 's03-profile-card?populate=*';
-  const SOCIAL_PATH = 's04-social-sharing?populate=*';
-  const BLOCKS_PATH = 'blocks?populate[Components][populate]=*';
-  const NAV_BLOCKS_PATH = 'blocks?populate=*';
+  const HEADER_PATH = 's01-header?populate=deep';
+  const FOOTER_PATH = 's02-footer?populate=deep';
+  const PROFILE_PATH = 's03-profile-card?populate=deep';
+  const SOCIAL_PATH = 's04-social-sharing?populate=deep';
+  const BLOCKS_PATH = 'blocks?populate=deep';
 
   const headerData = (await api.get(HEADER_PATH)) as ApiAttributes;
   const footer = (await api.get(FOOTER_PATH)) as ApiAttributes;
   const profile = (await api.get(PROFILE_PATH)) as ApiAttributes;
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
-
-  const navBlocks = (
-    (await api.get(NAV_BLOCKS_PATH, {
-      isCollection: true,
-    })) as ApiCollection
-  ).sort((a, b) => {
-    return a.Order - b.Order;
-  });
 
   const blocks = (
     (await api.get(BLOCKS_PATH, {
@@ -80,7 +70,6 @@ export const getStaticProps = async () => {
   return {
     props: {
       blocks,
-      navBlocks,
       logo,
       profile,
       social,

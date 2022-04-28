@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_utility_date_ranges",
+  "info": {
+    "displayName": "Date Range",
+    "icon": "calendar-week"
+  },
+  "options": {},
+  "attributes": {
+    "Available": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "From": {
+      "type": "date",
+      "required": true,
+      "default": "2022-08-01"
+    },
+    "To": {
+      "type": "date"
+    }
+  }
+}

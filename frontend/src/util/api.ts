@@ -3,6 +3,7 @@ import axios from 'axios';
 export type ApiAttributes = {
   createdAt: string;
   updatedAt: string;
+  id: number;
   [key: string]: any;
 };
 
@@ -42,7 +43,10 @@ export const api = {
     // console.log(response);
 
     if (config && config.isCollection) {
-      const collection = (response as ApiCollection).map((item) => item.attributes);
+      const collection = (response as ApiCollection).map((item) => ({
+        ...item.attributes,
+        id: item.id,
+      }));
       return collection as ApiCollection;
     }
 

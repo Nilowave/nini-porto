@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_utility_input_fields",
+  "info": {
+    "displayName": "Input Field",
+    "icon": "scroll",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Text Field",
+        "Text Area",
+        "Submit"
+      ]
+    },
+    "Required": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_content_c09_calendars",
+  "info": {
+    "displayName": "C09 Calendar",
+    "icon": "calendar-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Availability": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utility.date-range"
+    }
+  }
+}

@@ -30,8 +30,10 @@ export const Paragraph = styled.p`
   ${typeStyle.body01};
 `;
 
-export const RichText = styled.p`
+export const RichText = styled.div`
   ${typeStyle.body01};
+  white-space: pre-line;
+  width: 100%;
 `;
 
 export const BlockComponent = styled.div`
