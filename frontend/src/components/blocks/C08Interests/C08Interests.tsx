@@ -1,3 +1,4 @@
+import { getImageBySize } from 'util/getImageBySize';
 import { A05Image } from 'components/atoms/A05Image/A05Image';
 import { ImageAsset } from 'components/templates/T01Blocks/T01Blocks';
 import { ReactElement } from 'react';
@@ -27,7 +28,7 @@ export const C08Interests = ({ data }: C08InterestsProps): ReactElement => {
             key={`interest-${index}-${item.Title}`}
           >
             {item.Icon && item.Icon.data && (
-              <A05Image src={item.Icon.data.attributes.url} size={3} alt={item.Title} />
+              <A05Image src={getImageBySize(item.Icon, 'small')} size={3} alt={item.Title} />
             )}
             <span>{item.Title}</span>
           </S.ListItem>

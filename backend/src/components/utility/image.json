@@ -2,22 +2,38 @@
   "collectionName": "components_utility_images",
   "info": {
     "displayName": "Image",
-    "icon": "image"
+    "icon": "image",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "Excerpt": {
+      "type": "string"
+    },
+    "Category": {
+      "type": "string"
+    },
+    "Client": {
+      "type": "string"
+    },
+    "Delivery": {
+      "type": "date"
     }
   }
 }

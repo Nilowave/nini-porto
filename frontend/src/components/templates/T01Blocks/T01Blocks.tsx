@@ -33,10 +33,27 @@ interface T01BlocksProps {
 
 export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
   const renderBlock = (item: ApiAttributes) => {
+    const hasGallery = item.Components.filter((component: any) =>
+      component.__component.includes('c05-image-gallery'),
+    );
+
+    const renderComponents =
+      hasGallery.length > 0
+        ? [
+            ...item.Components.filter(
+              (component: any) => !component.__component.includes('c05-image-gallery'),
+            ),
+            {
+              __component: hasGallery[0].__component,
+              Gallery: hasGallery,
+            },
+          ]
+        : item.Components;
+
     return (
       <>
         <S.StyledTitle>{item.Title}</S.StyledTitle>
-        {item.Components.map((component: any, index: number) => {
+        {renderComponents.map((component: any, index: number) => {
           const componentKey = component.__component.split('.')[1];
           const BlockComponent = blockComponents[componentKey as keyof typeof blockComponents];
           return BlockComponent ? (

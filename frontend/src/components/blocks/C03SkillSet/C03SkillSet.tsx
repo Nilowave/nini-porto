@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { M02MultiColumn } from 'components/molecules/M01Progress/M02MultiColumn/M02MultiColumn';
+import { M02MultiColumn } from 'components/molecules/M02MultiColumn/M02MultiColumn';
 import * as S from './C03SkillSet.styles';
 import { Flex } from 'styles/layout';
 import { M01Progress } from 'components/molecules/M01Progress/M01Progress';

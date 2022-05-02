@@ -47,6 +47,11 @@ export const StyledCaption = styled.div<{ align: 'left' | 'right' }>`
 export const StyledMenuLink = styled.a`
   position: relative;
 
+  ${respondTo(MediaQuery.MAX_767)} {
+    display: inline-block;
+    margin-right: 3rem;
+  }
+
   &:first-of-type ${StyledImageWrapper} {
     width: 4.2rem;
     height: 4.2rem;

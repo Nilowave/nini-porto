@@ -10,7 +10,7 @@ import { S02Footer } from 'components/blocks/S02Footer/S02Footer';
 import { api, ApiCollection, ApiAttributes } from 'util/api';
 
 const Home = ({
-  logo,
+  header,
   blocks,
   profile,
   social,
@@ -26,7 +26,7 @@ const Home = ({
 
       <BackgroundShapes />
 
-      <S01Header logo={logo} />
+      <S01Header data={header} />
 
       <main>
         <DesktopPadding>
@@ -52,7 +52,7 @@ export const getStaticProps = async () => {
   const SOCIAL_PATH = 's04-social-sharing?populate=deep';
   const BLOCKS_PATH = 'blocks?populate=deep';
 
-  const headerData = (await api.get(HEADER_PATH)) as ApiAttributes;
+  const header = (await api.get(HEADER_PATH)) as ApiAttributes;
   const footer = (await api.get(FOOTER_PATH)) as ApiAttributes;
   const profile = (await api.get(PROFILE_PATH)) as ApiAttributes;
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
@@ -65,12 +65,10 @@ export const getStaticProps = async () => {
     return a.Order - b.Order;
   });
 
-  const logo: ApiAttributes = headerData.Logo.data.attributes;
-
   return {
     props: {
       blocks,
-      logo,
+      header,
       profile,
       social,
       footer,

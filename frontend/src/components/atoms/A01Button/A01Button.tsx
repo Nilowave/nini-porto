@@ -8,19 +8,27 @@ interface A01ButtonProps {
   outline?: boolean;
   big?: boolean;
   onClick?: () => void;
+  renderAs?: string;
+  className?: string;
 }
 
-// eslint-disable-next-line no-empty-pattern
 export const A01Button = ({
   title,
   link,
   outline,
   big,
   icon,
+  renderAs = 'button',
+  className,
   onClick,
 }: A01ButtonProps): ReactElement => {
   return (
-    <S.StyledA01Button outline={outline} big={big}>
+    <S.StyledA01Button
+      className={className}
+      outline={outline}
+      big={big}
+      as={renderAs as unknown as undefined}
+    >
       {icon && <S.StyledIcon className="material-symbols-outlined filled">{icon}</S.StyledIcon>}
       {title}
     </S.StyledA01Button>

@@ -1,6 +1,7 @@
 import { A05Image } from 'components/atoms/A05Image/A05Image';
 import { ImageAsset } from 'components/templates/T01Blocks/T01Blocks';
 import { ReactElement } from 'react';
+import { getImageBySize } from 'util/getImageBySize';
 import * as S from './C07References.styles';
 
 type Reference = {
@@ -24,7 +25,7 @@ export const C07References = ({ data }: C07ReferencesProps): ReactElement => {
           <S.ListItem key={`reference-${item.Title}`}>
             {item.Image.data && (
               <A05Image
-                src={item.Image.data.attributes.formats.small.url}
+                src={getImageBySize(item.Image, 'small')}
                 alt={`avatar-${item.Title}`}
                 size={5.4}
                 rounded

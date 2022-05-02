@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
+    "@types/react-stonecutter": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "axios": "^0.26.1",
     "axios-middleware": "^0.3.1",
+    "framer-motion": "^6.3.3",
     "gsap": "./src/vendor/gsap/gsap-bonus.tgz",
     "hex-to-rgba": "^2.0.1",
     "next": "12.1.5",
@@ -22,6 +24,8 @@
     "prettier": "^2.6.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-masonry-css": "^1.0.16",
+    "react-stonecutter": "^0.3.10",
     "slugify": "^1.6.5",
     "styled-components": "^5.3.5"
   },
