@@ -10,5 +10,5 @@ export const getImageBySize = (asset: ImageAsset, size: Size) => {
       (asset.data.attributes.formats[size] || {}).url) ||
     (asset.data && asset.data.attributes.url);
 
-  return image && (image.includes('http') ? image : `${process.env.NEXT_PUBLIC_HOST}${image}`);
+  return image;
 };

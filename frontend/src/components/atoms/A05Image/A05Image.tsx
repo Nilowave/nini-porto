@@ -34,8 +34,6 @@ export const A05Image = ({
   onLoad,
   ...props
 }: A05ImageProps): ReactElement => {
-  const url = src.includes('http') ? src : `${process.env.NEXT_PUBLIC_HOST}${src}`;
-
   const onImageLoad = (event: any) => {
     if (onLoad) {
       onLoad(event);
@@ -53,7 +51,7 @@ export const A05Image = ({
     >
       <Image
         onLoadingComplete={onImageLoad}
-        src={url}
+        src={src}
         layout="fill"
         objectPosition={align}
         objectFit={fit || (autoHeight || autoWidth ? 'contain' : 'cover')}
