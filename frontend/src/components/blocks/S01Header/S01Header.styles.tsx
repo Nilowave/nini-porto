@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { MediaQuery } from 'data/enum/mediaQuery';
 import { Container } from 'styles/layout';
 import { respondTo } from 'styles/util/respondTo';
+import { A05Image } from 'components/atoms/A05Image/A05Image';
 
 export const StyledS01Header = styled.header`
   position: relative;
@@ -26,8 +27,7 @@ export const StyledContainer = styled(Container)`
   }
 `;
 
-export const StyledLogo = styled.img`
+export const StyledLogo = styled(A05Image)`
   grid-area: content;
-  max-height: 4.5rem;
-  width: auto;
+  width: 100%;
 `;

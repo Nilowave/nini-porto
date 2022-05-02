@@ -2,22 +2,27 @@ import styled from 'styled-components';
 import { MediaQuery } from 'data/enum/mediaQuery';
 import { respondTo } from 'styles/util/respondTo';
 
-export const StyledS05SideNavigation = styled.nav`
+export const StyledS05SideNavigation = styled.div`
   grid-area: navigation;
+
+  ${respondTo(MediaQuery.MAX_767)} {
+    overflow-x: auto;
+    padding: 0 ${({ theme }) => theme.sitePadding};
+  }
 `;
 
 export const ContentWrapper = styled.nav`
-  position: sticky;
   top: 1rem;
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  justify-content: center;
   z-index: 10;
+  white-space: nowrap;
 
   ${respondTo(MediaQuery.MIN_768)} {
-    flex-direction: column;
+    position: sticky;
+    display: flex;
     gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
   }
 `;
 

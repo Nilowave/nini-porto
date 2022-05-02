@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -31,12 +31,12 @@
         "content.c02-personal",
         "content.c03-skill-set",
         "content.c04-lists",
-        "content.c05-image-gallery",
         "content.c06-timeline",
         "content.c07-references",
         "content.c08-interests",
         "content.c09-calendar",
-        "content.c10-contact-form"
+        "content.c10-contact-form",
+        "content.c05-image-gallery"
       ]
     },
     "Caption": {

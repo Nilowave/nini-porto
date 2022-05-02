@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import { ApiAttributes } from 'util/api';
+import { getImageBySize } from 'util/getImageBySize';
 import { S04SocialSharing } from '../S04SocialSharing/S04SocialSharing';
 import * as S from './S03ProfileCard.styles';
 
@@ -14,6 +15,8 @@ export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElem
 
   const { Name, Title } = data;
   const cardImage = data.Image;
+  console.log(cardImage);
+
   const images = cardImage.data;
 
   return (
@@ -22,8 +25,8 @@ export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElem
         {images && (
           <S.ImageContainer>
             {images.map((image: any) => {
-              const imageObj = image.attributes.formats.small;
-              const imageSrc = `${process.env.NEXT_PUBLIC_HOST}${imageObj?.url}`;
+              const imageSrc = getImageBySize({ data: image }, 'small');
+
               return (
                 <S.ImageWrapper key={image.id}>
                   <S.StyledImage

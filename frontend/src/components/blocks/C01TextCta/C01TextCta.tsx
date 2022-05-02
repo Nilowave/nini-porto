@@ -16,8 +16,6 @@ interface C01TextCtaProps {
 }
 
 export const C01TextCta = ({ data }: C01TextCtaProps): ReactElement => {
-  console.log(data);
-
   return (
     <S.StyledC01TextCta>
       {data.Text && <RichText dangerouslySetInnerHTML={{ __html: data.Text }} />}

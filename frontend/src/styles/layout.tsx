@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { MediaQuery } from '../data/enum/mediaQuery';
-import { typeStyle } from './typeStyle';
+import { typeStyle, TypeStyleType } from './typeStyle';
 import { respondTo } from './util/respondTo';
 
 export const Container = styled.div`
@@ -9,9 +9,11 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  flex: 1;
   ${respondTo(MediaQuery.MIN_768)} {
     column-gap: 1rem;
     display: grid;
+    width: 100%;
     grid-template: 'profile content navigation' 1fr/32rem auto 4.6rem;
   }
 `;
@@ -53,6 +55,12 @@ export const SubTitle = styled.h3`
   ${typeStyle.heading03};
   color: ${({ theme }) => theme.colors.grey};
   margin-bottom: 3.4rem;
+`;
+
+export const Text = styled.p<{ type: keyof TypeStyleType; size?: string; margin?: string }>`
+  ${({ type }) => typeStyle[type]};
+  ${({ size }) => size && `font-size: ${size}`};
+  ${({ margin }) => margin && `margin: ${margin}`};
 `;
 
 export const Flex = styled.div<{

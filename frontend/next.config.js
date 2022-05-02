@@ -7,7 +7,7 @@ const nextConfig = {
   },
   transpile: ['gsap'],
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'res.cloudinary.com'],
   },
   eslint: {
     dirs: ['src'],

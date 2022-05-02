@@ -1,10 +1,26 @@
 import styled from 'styled-components';
 
-export const StyledA05Image = styled.div<{ size: number; rounded?: boolean }>`
+export const StyledA05Image = styled.div<{
+  size: number | string;
+  rounded?: boolean | number;
+  autoWidth?: boolean;
+  autoHeight?: boolean;
+  width?: string | number;
+  layout?: string;
+}>`
   position: relative;
   overflow: hidden;
-  width: ${({ size }) => `${size}rem`};
-  height: ${({ size }) => `${size}rem`};
 
-  ${({ rounded }) => rounded && 'border-radius: 50%;'};
+  width: ${({ size, autoWidth }) =>
+    autoWidth ? 'auto' : typeof size === 'string' ? size : `${size}rem`};
+  height: ${({ size, autoHeight }) =>
+    autoHeight ? 'auto' : typeof size === 'string' ? size : `${size}rem`};
+
+  ${({ width, layout }) =>
+    width &&
+    layout != 'responsive' &&
+    `width: ${typeof width === 'string' ? width : `${width}px`}`};
+
+  ${({ rounded }) =>
+    rounded && (rounded === true ? 'border-radius: 50%;' : `border-radius: ${rounded}px;`)};
 `;
