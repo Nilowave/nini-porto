@@ -18,7 +18,7 @@
     "better-sqlite3": "7.4.6",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
-    "strapi-plugin-colorpicker": "^1.0.35",
+    "react-color": "^2.19.3",
     "strapi-plugin-populate-deep": "^0.1.2",
     "strapi-tiptap-editor": "^0.7.9"
   },
