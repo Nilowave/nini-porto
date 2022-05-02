@@ -15,7 +15,6 @@ export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElem
 
   const { Name, Title } = data;
   const cardImage = data.Image;
-  console.log(cardImage);
 
   const images = cardImage.data;
 

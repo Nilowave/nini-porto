@@ -22,10 +22,12 @@ export const StyledShape1 = styled(Shape01)`
   top: 0;
   left: 0;
   z-index: 0;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 export const StyledShape2 = styled(Shape02)`
   position: absolute;
   top: -10rem;
   right: -10rem;
   z-index: 0;
+  color: ${({ theme }) => theme.colors.primary};
 `;

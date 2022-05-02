@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     ${typeStyle.body01};
-    background-color: ${({ theme }) => theme.colors.offWhite};
+    background-color: ${({ theme }) => theme.colors.background};
   }
 
   html, body {
