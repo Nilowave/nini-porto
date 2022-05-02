@@ -12,13 +12,16 @@
   "pluginOptions": {},
   "attributes": {
     "PrimaryColor": {
-      "type": "string"
+      "type": "string",
+      "fieldRenderer": "wave-colorpicker"
     },
     "SecondaryColor": {
-      "type": "string"
+      "type": "string",
+      "fieldRenderer": "wave-colorpicker"
     },
     "BackgroundColor": {
-      "type": "string"
+      "type": "string",
+      "fieldRenderer": "wave-colorpicker"
     }
   }
 }

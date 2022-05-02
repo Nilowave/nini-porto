@@ -8,14 +8,35 @@ import { S05SideNavigation } from 'components/blocks/S05SideNavigation/S05SideNa
 import { BackgroundShapes } from 'components/atoms/BackgroundShapes/BackgroundShapes';
 import { S02Footer } from 'components/blocks/S02Footer/S02Footer';
 import { api, ApiCollection, ApiAttributes } from 'util/api';
+import { theme as appTheme, ThemeType } from 'styles/theme/default';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-const Home = ({
-  header,
-  blocks,
-  profile,
-  social,
-  footer,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface HomeProps extends InferGetStaticPropsType<typeof getStaticProps> {
+  setTheme: Dispatch<SetStateAction<ThemeType>>;
+}
+
+const Home = ({ header, blocks, profile, social, footer, theme, ...props }: HomeProps) => {
+  const isThemeReady = useRef(false);
+
+  useEffect(() => {
+    if (theme) {
+      const customTheme = {
+        ...appTheme,
+        colors: {
+          ...appTheme.colors,
+          primary: theme.PrimaryColor || appTheme.colors.primary,
+          secondary: theme.SecondaryColor || appTheme.colors.secondary,
+          background: theme.BackgroundColor || appTheme.colors.background,
+        },
+      };
+      if (isThemeReady.current === false) {
+        isThemeReady.current = true;
+        props.setTheme(customTheme);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isThemeReady]);
+
   return (
     <div>
       <Head>
@@ -51,11 +72,13 @@ export const getStaticProps = async () => {
   const PROFILE_PATH = 's03-profile-card?populate=deep';
   const SOCIAL_PATH = 's04-social-sharing?populate=deep';
   const BLOCKS_PATH = 'blocks?populate=deep';
+  const THEME_PATH = 'theme';
 
   const header = (await api.get(HEADER_PATH)) as ApiAttributes;
   const footer = (await api.get(FOOTER_PATH)) as ApiAttributes;
   const profile = (await api.get(PROFILE_PATH)) as ApiAttributes;
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
+  const theme = (await api.get(THEME_PATH)) as ApiAttributes;
 
   const blocks = (
     (await api.get(BLOCKS_PATH, {
@@ -72,6 +95,7 @@ export const getStaticProps = async () => {
       profile,
       social,
       footer,
+      theme,
     },
     revalidate: 10,
   };

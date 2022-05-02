@@ -6,6 +6,8 @@ export const colors = {
   offWhite: '#f3f3f3',
   cottonGrey: '#e1e1e1',
   grey: '#757575',
+  background: '#f3f3f3',
+  secondary: '#e1e1e1',
   primary: '#c0e3e7',
 };
 

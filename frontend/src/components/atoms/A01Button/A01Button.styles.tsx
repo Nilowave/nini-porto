@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { typeStyle } from 'styles/typeStyle';
+import { useContrastingTextColor } from 'util/useContrastingTextColor';
 
 export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean }>`
   ${typeStyle.button};
@@ -12,6 +13,8 @@ export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean 
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  color: ${({ theme }) =>
+    useContrastingTextColor(theme.colors.primary, theme.colors.white, theme.colors.black)};
 
   ${({ big }) =>
     big &&
@@ -24,6 +27,7 @@ export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean 
     outline &&
     css`
       border: solid 2px ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.black};
       background-color: transparent;
     `}
 

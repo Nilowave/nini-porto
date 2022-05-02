@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { MediaQuery } from 'data/enum/mediaQuery';
 import { typeStyle } from 'styles/typeStyle';
 import { respondTo } from 'styles/util/respondTo';
+import { useContrastingTextColor } from 'util/useContrastingTextColor';
 
 export const StyledS03ProfileCard = styled.div`
   grid-area: profile;
@@ -16,6 +17,8 @@ export const ContentWrapper = styled.div`
   align-items: center;
   padding: 3rem 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) =>
+    useContrastingTextColor(theme.colors.primary, theme.colors.white, theme.colors.black)};
 
   ${respondTo(MediaQuery.MIN_768)} {
     width: 29rem;

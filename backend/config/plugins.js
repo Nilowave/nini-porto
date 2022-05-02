@@ -14,5 +14,9 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  "wave-colorpicker": {
+    enabled: true,
+    resolve: "src/plugins/wave-colorpicker",
+  },
   // ...
 });

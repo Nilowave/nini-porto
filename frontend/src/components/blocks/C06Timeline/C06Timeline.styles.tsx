@@ -2,6 +2,7 @@ import { A05Image } from 'components/atoms/A05Image/A05Image';
 import { MediaQuery } from 'data/enum/mediaQuery';
 import styled from 'styled-components';
 import { typeStyle } from 'styles/typeStyle';
+import { useContrastingTextColor } from 'util/useContrastingTextColor';
 import { respondTo } from 'styles/util/respondTo';
 
 export const StyledC06Timeline = styled.div`
@@ -18,6 +19,8 @@ export const YearSpan = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   text-align: center;
   margin-right: 4.4rem;
+  color: ${({ theme }) =>
+    useContrastingTextColor(theme.colors.primary, theme.colors.white, theme.colors.black)};
   /* margin-left: 1rem; */
 
   &:after {
