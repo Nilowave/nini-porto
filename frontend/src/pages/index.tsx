@@ -73,6 +73,7 @@ export const getStaticProps = async () => {
       social,
       footer,
     },
+    revalidate: 10,
   };
 };
 

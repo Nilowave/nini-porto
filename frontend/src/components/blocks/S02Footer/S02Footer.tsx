@@ -7,16 +7,13 @@ interface S02FooterProps {
 }
 
 export const S02Footer = ({ data }: S02FooterProps): ReactElement => {
-  if (!data) return <></>;
-
   const year = new Date().getFullYear();
-  const text = data.Text.replace('{year}', year);
 
   return (
     <footer>
       <Container>
         <Wrapper>
-          <S.StyledS02Footer>{text}</S.StyledS02Footer>
+          <S.StyledS02Footer>{data && data.Text.replace('{year}', year)}</S.StyledS02Footer>
         </Wrapper>
       </Container>
     </footer>

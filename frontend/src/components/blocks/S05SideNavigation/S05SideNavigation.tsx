@@ -5,6 +5,7 @@ import { ApiCollection } from 'util/api';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import slugify from 'slugify';
+import { getImageBySize } from 'util/getImageBySize';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -38,7 +39,7 @@ export const S05SideNavigation = ({ data }: S05SideNavigationProps): ReactElemen
           if (!icon) return null;
           if (!icon || !icon.data) return null;
 
-          const iconUrl = `${process.env.NEXT_PUBLIC_HOST}${icon.data.attributes.url}`;
+          const iconUrl = getImageBySize(icon, 'small');
           const menuItem: MenuItem = {
             anchor: `#${slugify(item.Caption, { lower: true })}`,
             icon: iconUrl,
