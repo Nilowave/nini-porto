@@ -1,5 +1,7 @@
+import { MediaQuery } from 'data/enum/mediaQuery';
 import styled from 'styled-components';
 import { typeStyle } from 'styles/typeStyle';
+import { respondTo } from 'styles/util/respondTo';
 
 export const StyledC05ImageGallery = styled.div``;
 

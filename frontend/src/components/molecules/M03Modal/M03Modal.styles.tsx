@@ -23,8 +23,12 @@ export const StyledM03Modal = styled(motion.div)`
   z-index: 100;
   top: 0;
   left: 0;
-  padding: 6rem 3rem;
+  padding: 5rem 2rem;
   overflow-y: auto;
+
+  ${respondTo(MediaQuery.MIN_768)} {
+    padding: 6rem 3rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -51,16 +55,17 @@ export const MiddleWrapper = styled.div`
   text-align: center;
 `;
 export const ContentWrapper = styled(motion.div)`
-  padding: 5rem;
+  padding: 2rem;
   margin: 0 auto;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.white};
   animation: ${appear} 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 
   ${respondTo(MediaQuery.MIN_480)} {
-    max-width: 43rem;
+    max-width: 45rem;
   }
   ${respondTo(MediaQuery.MIN_768)} {
+    padding: 5rem;
     max-width: calc(100% - 4rem);
   }
   ${respondTo(MediaQuery.MIN_1024)} {
@@ -78,16 +83,25 @@ export const ContentWrapper = styled(motion.div)`
 `;
 export const Content = styled(motion.div)`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
   position: relative;
   text-align: left;
   width: 100%;
+
+  ${respondTo(MediaQuery.MIN_768)} {
+    gap: 5rem;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const Title = styled.h2`
-  ${typeStyle.heading01};
+  ${typeStyle.heading02};
   text-transform: uppercase;
+
+  ${respondTo(MediaQuery.MIN_768)} {
+    ${typeStyle.heading01};
+  }
 `;
 
 export const SubTitle = styled.p`

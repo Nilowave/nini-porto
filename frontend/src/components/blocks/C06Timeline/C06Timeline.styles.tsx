@@ -109,10 +109,8 @@ export const TimeBlock = styled.div`
 export const Title = styled.h3`
   ${typeStyle.heading04};
   grid-area: title;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-top: 1.6rem;
+  line-height: 1.5;
 
   ${respondTo(MediaQuery.MIN_1024)} {
     margin: 0;
