@@ -1,5 +1,5 @@
 import { M02MultiColumn } from 'components/molecules/M02MultiColumn/M02MultiColumn';
-import { ReactElement } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import slugify from 'slugify';
 import * as S from './C04Lists.styles';
 
@@ -8,24 +8,36 @@ interface C04ListsProps {
 }
 
 export const C04Lists = ({ data }: C04ListsProps): ReactElement => {
+  const [primaryList, setPrimaryList] = useState<Array<any>>();
   const titles = [data.PrimaryTitle, data.SecondaryTitle].filter((title) => title);
-  const temp = document.createElement('p');
-  temp.innerHTML = data.PrimaryList;
-  console.log(temp);
-  const primaryList = Array.from(temp.querySelectorAll('li')).map((item) => item.innerText);
   // const secondaryList = data.SecondaryList.split('\n').map((item: string) => item.substring(2));
+
+  useEffect(() => {
+    if (data) {
+      const temp = document.createElement('p');
+      temp.innerHTML = data.PrimaryList;
+      const list = Array.from(temp.querySelectorAll('li')).map((item) => item.innerText);
+      setPrimaryList(list);
+    }
+  }, [data]);
 
   return (
     <S.StyledC04Lists>
       <M02MultiColumn titles={titles}>
         {data.PrimaryList && (
           <S.List as="ul" gap="1rem" flexDirection="column">
-            {primaryList.map((item: string, index: number) => (
-              <S.ListItem as="li" key={`list-item-${index}-${item}`} alignItems="center" gap="1rem">
-                <S.Check className="material-symbols-outlined filled">done</S.Check>
-                <b>{item}</b>
-              </S.ListItem>
-            ))}
+            {primaryList &&
+              primaryList.map((item: string, index: number) => (
+                <S.ListItem
+                  as="li"
+                  key={`list-item-${index}-${item}`}
+                  alignItems="center"
+                  gap="1rem"
+                >
+                  <S.Check className="material-symbols-outlined filled">done</S.Check>
+                  <b>{item}</b>
+                </S.ListItem>
+              ))}
           </S.List>
         )}
 
