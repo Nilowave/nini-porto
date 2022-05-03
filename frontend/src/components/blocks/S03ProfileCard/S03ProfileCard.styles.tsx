@@ -19,6 +19,7 @@ export const ContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) =>
     useContrastingTextColor(theme.colors.primary, theme.colors.white, theme.colors.black)};
+  transition: background-color 0.5s ease;
 
   ${respondTo(MediaQuery.MIN_768)} {
     width: 29rem;

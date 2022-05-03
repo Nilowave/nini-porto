@@ -1,6 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import { ApiAttributes } from 'util/api';
+import { baseComponentTransition } from 'util/baseComponentTransition';
 import { getImageBySize } from 'util/getImageBySize';
+import { scrollTransition } from 'util/scrollTransition';
 import { S04SocialSharing } from '../S04SocialSharing/S04SocialSharing';
 import * as S from './S03ProfileCard.styles';
 
@@ -11,6 +13,14 @@ interface S03ProfileCardProps {
 
 // eslint-disable-next-line no-empty-pattern
 export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElement => {
+  const componentRef = useRef<Array<HTMLElement>>([]);
+
+  useEffect(() => {
+    if (componentRef.current) {
+      console.log('animate me');
+    }
+  }, [componentRef]);
+
   if (!data) return <></>;
 
   const { Name, Title } = data;
@@ -18,8 +28,15 @@ export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElem
 
   const images = cardImage.data;
 
+  const setScrollTrigger = (block: HTMLDivElement) => {
+    if (!componentRef.current.includes(block)) {
+      componentRef.current.push(block);
+      scrollTransition(block, baseComponentTransition(block, { delay: 0.3, scale: 1.01, x: -20 }));
+    }
+  };
+
   return (
-    <S.StyledS03ProfileCard>
+    <S.StyledS03ProfileCard ref={(el) => el && setScrollTrigger(el)}>
       <S.ContentWrapper>
         {images && (
           <S.ImageContainer>

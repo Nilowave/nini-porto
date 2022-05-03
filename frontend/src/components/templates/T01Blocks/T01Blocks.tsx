@@ -1,8 +1,10 @@
-import { ReactElement } from 'react';
+import { ReactElement, useRef } from 'react';
 import { ApiAttributes, ApiCollection } from 'util/api';
 import { blockComponents } from 'util/cmsComponents';
 import slugify from 'slugify';
 import * as S from './T01Blocks.styles';
+import { scrollTransition } from 'util/scrollTransition';
+import { baseComponentTransition } from 'util/baseComponentTransition';
 
 export type ImageAsset = {
   data?: {
@@ -32,6 +34,7 @@ interface T01BlocksProps {
 }
 
 export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
+  const blocksRef = useRef<Array<HTMLElement>>([]);
   const renderBlock = (item: ApiAttributes) => {
     const hasGallery = item.Components.filter((component: any) =>
       component.__component.includes('c05-image-gallery'),
@@ -66,6 +69,14 @@ export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
     );
   };
 
+  const setScrollTrigger = (block: HTMLElement) => {
+    if (!blocksRef.current.includes(block)) {
+      console.log('transition', block);
+      blocksRef.current.push(block);
+      scrollTransition(block, baseComponentTransition(block, { scale: 1.05, x: -20 }));
+    }
+  };
+
   return (
     <S.StyledT01Blocks>
       {blocks.map((item, index) => {
@@ -78,6 +89,7 @@ export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
             <S.StyledBlock
               key={`block-${index}-${JSON.stringify(item)}`}
               id={item.Caption && slugify(item.Caption, { lower: true })}
+              ref={(el) => el && setScrollTrigger(el)}
             >
               {renderBlock(item)}
               {joins.length > 0 &&

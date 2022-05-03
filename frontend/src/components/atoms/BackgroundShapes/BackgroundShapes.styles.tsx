@@ -1,8 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { MediaQuery } from 'data/enum/mediaQuery';
 import { respondTo } from 'styles/util/respondTo';
 import Shape01 from 'svg/shape-01.svg';
 import Shape02 from 'svg/shape-02.svg';
+
+const fade = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const StyledBackgroundShapes = styled.div`
   display: none;
@@ -11,6 +20,7 @@ export const StyledBackgroundShapes = styled.div`
   width: 100vw;
   height: 100vh;
   pointer-events: none;
+  animation: ${fade} 5s ease both;
 
   ${respondTo(MediaQuery.MIN_768)} {
     display: block;
