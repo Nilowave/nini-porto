@@ -123,7 +123,7 @@ export const M03Modal = ({ data, onClose, setData }: M03ModalProps): ReactElemen
                         MORE PROJECTS
                       </Text>
 
-                      <Flex gap="1.6rem" justifyContent="space-evenly">
+                      <Flex gap="1.6rem" justifyContent="space-evenly" flexWrap="wrap">
                         {projects.map((item) => {
                           const image = getImageBySize(item.Image, 'small');
                           return (

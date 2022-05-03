@@ -37,7 +37,7 @@ export const C02PersonalSkills = ({ data }: C02PersonalSkillsProps): ReactElemen
                     <S.ContactTitle>
                       {ContactTitle[item as keyof typeof ContactTitle]}
                     </S.ContactTitle>
-                    <S.ContactValue>{data.Contact[item]}</S.ContactValue>
+                    <S.ContactValue dangerouslySetInnerHTML={{ __html: data.Contact[item] }} />
                   </S.ContactItem>
                 ),
             )}

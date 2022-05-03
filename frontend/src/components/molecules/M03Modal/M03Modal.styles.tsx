@@ -69,6 +69,12 @@ export const ContentWrapper = styled(motion.div)`
   ${respondTo(MediaQuery.MIN_1280)} {
     max-width: 120rem;
   }
+  ${respondTo(MediaQuery.MIN_1440)} {
+    max-width: 140rem;
+  }
+  ${respondTo(MediaQuery.MIN_1920)} {
+    max-width: 150rem;
+  }
 `;
 export const Content = styled(motion.div)`
   display: grid;

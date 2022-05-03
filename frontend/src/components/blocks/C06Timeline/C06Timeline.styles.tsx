@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { typeStyle } from 'styles/typeStyle';
 import { useContrastingTextColor } from 'util/useContrastingTextColor';
 import { respondTo } from 'styles/util/respondTo';
+import { RichText } from 'styles/layout';
 
 export const StyledC06Timeline = styled.div`
   padding: 0 2rem;
@@ -125,7 +126,7 @@ export const SubTitle = styled.h4`
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-export const Text = styled.p`
+export const Text = styled(RichText)`
   ${typeStyle.body02};
 `;
 

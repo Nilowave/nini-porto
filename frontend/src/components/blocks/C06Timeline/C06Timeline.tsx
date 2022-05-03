@@ -44,7 +44,7 @@ export const C06Timeline = ({ data }: C06TimelineProps): ReactElement => {
                 />
               )}
               {item.Subtitle && <S.SubTitle>{item.Subtitle}</S.SubTitle>}
-              <S.Text>{item.Description}</S.Text>
+              <S.Text dangerouslySetInnerHTML={{ __html: item.Description }} />
             </S.ContentWrapper>
           </S.TimeBlock>
         );

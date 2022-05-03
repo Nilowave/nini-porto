@@ -9,7 +9,10 @@ interface C04ListsProps {
 
 export const C04Lists = ({ data }: C04ListsProps): ReactElement => {
   const titles = [data.PrimaryTitle, data.SecondaryTitle].filter((title) => title);
-  const primaryList = data.PrimaryList.split('\n').map((item: string) => item.substring(2));
+  const temp = document.createElement('p');
+  temp.innerHTML = data.PrimaryList;
+  console.log(temp);
+  const primaryList = Array.from(temp.querySelectorAll('li')).map((item) => item.innerText);
   // const secondaryList = data.SecondaryList.split('\n').map((item: string) => item.substring(2));
 
   return (
