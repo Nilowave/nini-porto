@@ -10,12 +10,15 @@ import { S02Footer } from 'components/blocks/S02Footer/S02Footer';
 import { api, ApiCollection, ApiAttributes } from 'util/api';
 import { theme as appTheme, ThemeType } from 'styles/theme/default';
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { A00Loading } from 'components/atoms/A00Loading/A00Loading';
 
 interface HomeProps extends InferGetStaticPropsType<typeof getStaticProps> {
   setTheme: Dispatch<SetStateAction<ThemeType>>;
 }
 
-const Home = ({ header, blocks, profile, social, footer, theme, ...props }: HomeProps) => {
+const Home = ({ header, blocks, profile, social, footer, theme, seo, ...props }: HomeProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   const isThemeReady = useRef(false);
 
   useEffect(() => {
@@ -37,11 +40,21 @@ const Home = ({ header, blocks, profile, social, footer, theme, ...props }: Home
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isThemeReady]);
 
+  useEffect(() => {
+    setIsLoading(false);
+    console.log('open');
+  }, []);
+
+  if (isLoading) return <A00Loading />;
+
   return (
     <div>
       <Head>
-        <title>N Meulens Portfolio</title>
-        <meta name="description" content="Welcome to Nirmala Meulens portfolio website" />
+        <title>{(seo && seo.Title) || 'N Meulens Portfolio'}</title>
+        <meta
+          name="description"
+          content={(seo && seo.Description) || 'Welcome to Nirmala Meulens portfolio website'}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -73,12 +86,14 @@ export const getStaticProps = async () => {
   const SOCIAL_PATH = 's04-social-sharing?populate=deep';
   const BLOCKS_PATH = 'blocks?populate=deep';
   const THEME_PATH = 'theme';
+  const SEO_PATH = 'seo';
 
   const header = (await api.get(HEADER_PATH)) as ApiAttributes;
   const footer = (await api.get(FOOTER_PATH)) as ApiAttributes;
   const profile = (await api.get(PROFILE_PATH)) as ApiAttributes;
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
   const theme = (await api.get(THEME_PATH)) as ApiAttributes;
+  const seo = (await api.get(SEO_PATH)) as ApiAttributes;
 
   const blocks = (
     (await api.get(BLOCKS_PATH, {
@@ -96,6 +111,7 @@ export const getStaticProps = async () => {
       social,
       footer,
       theme,
+      seo,
     },
     revalidate: 10,
   };

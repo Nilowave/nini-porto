@@ -71,7 +71,6 @@ export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
 
   const setScrollTrigger = (block: HTMLElement) => {
     if (!blocksRef.current.includes(block)) {
-      console.log('transition', block);
       blocksRef.current.push(block);
       scrollTransition(block, baseComponentTransition(block, { scale: 1.05, x: -20 }));
     }

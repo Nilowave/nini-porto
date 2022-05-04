@@ -15,7 +15,9 @@ export const S02Footer = ({ data }: S02FooterProps): ReactElement => {
         <Wrapper>
           <S.StyledS02Footer>
             {data && (
-              <RichText dangerouslySetInnerHTML={{ __html: data.Text.replace('{year}', year) }} />
+              <S.StyledRichText
+                dangerouslySetInnerHTML={{ __html: data.Text.replace('{year}', year) }}
+              />
             )}
           </S.StyledS02Footer>
         </Wrapper>

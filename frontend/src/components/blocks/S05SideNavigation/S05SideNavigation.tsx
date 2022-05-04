@@ -1,10 +1,13 @@
 import React, { ReactElement } from 'react';
-import { MenuItem, MenuLink } from 'components/atoms/MenuLink/MenuLink';
-import * as S from './S05SideNavigation.styles';
-import { ApiCollection } from 'util/api';
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin';
 import slugify from 'slugify';
+import {
+  MenuItem,
+  MenuLink,
+} from 'components/blocks/S05SideNavigation/components/MenuLink/MenuLink';
+import * as S from './S05SideNavigation.styles';
+import { ApiCollection } from 'util/api';
 import { getImageBySize } from 'util/getImageBySize';
 
 gsap.registerPlugin(ScrollToPlugin);

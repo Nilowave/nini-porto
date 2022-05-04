@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import * as S from './BackgroundShapes.styles';
 
 interface BackgroundShapesProps {}

@@ -1,5 +1,5 @@
 import Image, { ImageProps } from 'next/image';
-import { ReactElement, RefObject } from 'react';
+import { ReactElement } from 'react';
 import * as S from './A05Image.styles';
 
 export type ImageNaturalSize = {

@@ -17,8 +17,8 @@ export const StyledBackgroundShapes = styled.div`
   display: none;
   position: fixed;
   z-index: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   animation: ${fade} 5s ease both;
 
