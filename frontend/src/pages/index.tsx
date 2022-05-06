@@ -55,6 +55,8 @@ const Home = ({ header, blocks, profile, social, footer, theme, seo, ...props }:
           name="description"
           content={(seo && seo.Description) || 'Welcome to Nirmala Meulens portfolio website'}
         />
+        {seo && seo.Title && <meta property="og:title" content={seo.Title} />}
+        {seo && seo.Description && <meta property="og:description" content={seo.Description} />}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
