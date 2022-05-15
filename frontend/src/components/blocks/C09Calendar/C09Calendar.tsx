@@ -21,7 +21,6 @@ import { BlockContext } from 'components/templates/T01Blocks/T01Blocks.context';
 import { M03Modal } from 'components/molecules/M03Modal/M03Modal';
 import { MakeAppointment } from './components/MakeAppointment/MakeAppointment';
 import { ImageAsset } from 'components/templates/T01Blocks/T01Blocks';
-import { Success } from './components/Success/Success';
 
 type Availability = {
   From: string;
@@ -51,7 +50,6 @@ interface C09CalendarProps {
 }
 
 export const C09Calendar = ({ data }: C09CalendarProps): ReactElement => {
-  console.log(data);
   const { Availability, TimeFrom, TimeTo, Timezone } = data;
 
   const { setContextData } = useContext(BlockContext);

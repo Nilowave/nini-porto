@@ -17,7 +17,6 @@ export const S03ProfileCard = ({ data, social }: S03ProfileCardProps): ReactElem
 
   useEffect(() => {
     if (componentRef.current) {
-      console.log('animate me');
     }
   }, [componentRef]);
 

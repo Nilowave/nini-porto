@@ -93,7 +93,6 @@ export const MakeAppointment = ({
 
   const handleTimeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const index = event.target.value;
-    console.log(index);
     setTimeValue(parseInt(index));
   };
 
