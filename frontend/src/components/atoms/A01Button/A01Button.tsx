@@ -10,7 +10,7 @@ interface A01ButtonProps {
   onClick?: () => void;
   renderAs?: string;
   className?: string;
-  type: 'button' | 'submit';
+  type?: 'button' | 'submit';
 }
 
 export const A01Button = ({
