@@ -6,6 +6,7 @@ import { C05ImageGallery } from 'components/blocks/C05ImageGallery/C05ImageGalle
 import { C06Timeline } from 'components/blocks/C06Timeline/C06Timeline';
 import { C07References } from 'components/blocks/C07References/C07References';
 import { C08Interests } from 'components/blocks/C08Interests/C08Interests';
+import { C09Calendar } from 'components/blocks/C09Calendar/C09Calendar';
 
 export const blockComponents = {
   'c01-text-cta': C01TextCta,
@@ -16,4 +17,5 @@ export const blockComponents = {
   'c05-image-gallery': C05ImageGallery,
   'c07-references': C07References,
   'c08-interests': C08Interests,
+  'c09-calendar': C09Calendar,
 };

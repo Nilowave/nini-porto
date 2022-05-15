@@ -1,10 +1,11 @@
-import { ReactElement, useRef } from 'react';
+import { createContext, ReactElement, useRef } from 'react';
 import { ApiAttributes, ApiCollection } from 'util/api';
 import { blockComponents } from 'util/cmsComponents';
 import slugify from 'slugify';
 import * as S from './T01Blocks.styles';
 import { scrollTransition } from 'util/scrollTransition';
 import { baseComponentTransition } from 'util/baseComponentTransition';
+import { BlockContextProvider } from './T01Blocks.context';
 
 export type ImageAsset = {
   data?: {
@@ -34,7 +35,10 @@ interface T01BlocksProps {
 }
 
 export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
+  const contextData = {};
+
   const blocksRef = useRef<Array<HTMLElement>>([]);
+
   const renderBlock = (item: ApiAttributes) => {
     const hasGallery = item.Components.filter((component: any) =>
       component.__component.includes('c05-image-gallery'),
@@ -78,32 +82,34 @@ export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
 
   return (
     <S.StyledT01Blocks>
-      {blocks.map((item, index) => {
-        const joins = blocks.filter(
-          (joinBlock) => joinBlock.Join.data && joinBlock.Join.data.id === item.id,
-        );
+      <BlockContextProvider>
+        {blocks.map((item, index) => {
+          const joins = blocks.filter(
+            (joinBlock) => joinBlock.Join.data && joinBlock.Join.data.id === item.id,
+          );
 
-        return (
-          !item.Join.data && (
-            <S.StyledBlock
-              key={`block-${index}-${JSON.stringify(item)}`}
-              id={item.Caption && slugify(item.Caption, { lower: true })}
-              ref={(el) => el && setScrollTrigger(el)}
-            >
-              {renderBlock(item)}
-              {joins.length > 0 &&
-                joins.map((join, joinindex) => (
-                  <S.JoinBlock
-                    id={join.Caption && slugify(join.Caption, { lower: true })}
-                    key={`join-block-${joinindex}-${JSON.stringify(join)}`}
-                  >
-                    {renderBlock(join)}
-                  </S.JoinBlock>
-                ))}
-            </S.StyledBlock>
-          )
-        );
-      })}
+          return (
+            !item.Join.data && (
+              <S.StyledBlock
+                key={`block-${index}-${JSON.stringify(item)}`}
+                id={item.Caption && slugify(item.Caption, { lower: true })}
+                ref={(el) => el && setScrollTrigger(el)}
+              >
+                {renderBlock(item)}
+                {joins.length > 0 &&
+                  joins.map((join, joinindex) => (
+                    <S.JoinBlock
+                      id={join.Caption && slugify(join.Caption, { lower: true })}
+                      key={`join-block-${joinindex}-${JSON.stringify(join)}`}
+                    >
+                      {renderBlock(join)}
+                    </S.JoinBlock>
+                  ))}
+              </S.StyledBlock>
+            )
+          );
+        })}
+      </BlockContextProvider>
     </S.StyledT01Blocks>
   );
 };

@@ -32,6 +32,7 @@ export const A05Image = ({
   align = 'center',
   fit,
   onLoad,
+  height,
   ...props
 }: A05ImageProps): ReactElement => {
   const onImageLoad = (event: any) => {
@@ -47,6 +48,7 @@ export const A05Image = ({
       autoWidth={autoWidth}
       autoHeight={autoHeight}
       width={props.width}
+      height={height}
       layout={props.layout}
     >
       <Image
@@ -56,6 +58,7 @@ export const A05Image = ({
         objectPosition={align}
         objectFit={fit || (autoHeight || autoWidth ? 'contain' : 'cover')}
         alt={alt}
+        height={height !== 'auto' ? height : undefined}
         {...props}
       />
     </S.StyledA05Image>

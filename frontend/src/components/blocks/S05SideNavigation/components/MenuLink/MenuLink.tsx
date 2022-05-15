@@ -42,9 +42,12 @@ export const MenuLink = ({ item, onClick }: MenuLinkProps): ReactElement => {
       <S.StyledImageWrapper>
         <Image alt={`Menu ${item.title}`} src={item.icon} layout="fill" objectFit="cover" />
       </S.StyledImageWrapper>
-      <S.StyledCaption ref={captionRef} align={alignCaption}>
-        {item.title}
-      </S.StyledCaption>
+
+      {item.title && (
+        <S.StyledCaption ref={captionRef} align={alignCaption}>
+          {item.title}
+        </S.StyledCaption>
+      )}
     </S.StyledMenuLink>
   );
 };

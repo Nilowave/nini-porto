@@ -31,17 +31,17 @@
         "content.c02-personal",
         "content.c03-skill-set",
         "content.c04-lists",
+        "content.c05-image-gallery",
         "content.c06-timeline",
         "content.c07-references",
         "content.c08-interests",
         "content.c09-calendar",
-        "content.c10-contact-form",
-        "content.c05-image-gallery"
+        "content.c10-contact-form"
       ]
     },
     "Caption": {
       "type": "string",
-      "required": false
+      "required": true
     },
     "Order": {
       "type": "integer",

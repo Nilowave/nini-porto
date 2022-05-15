@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MediaQuery } from '../data/enum/mediaQuery';
+import { ColorKey } from './theme/default';
 import { typeStyle, TypeStyleType } from './typeStyle';
 import { respondTo } from './util/respondTo';
 
@@ -57,10 +58,16 @@ export const SubTitle = styled.h3`
   margin-bottom: 3.4rem;
 `;
 
-export const Text = styled.p<{ type: keyof TypeStyleType; size?: string; margin?: string }>`
+export const Text = styled.p<{
+  type: keyof TypeStyleType;
+  size?: string;
+  margin?: string;
+  color?: ColorKey;
+}>`
   ${({ type }) => typeStyle[type]};
   ${({ size }) => size && `font-size: ${size}`};
   ${({ margin }) => margin && `margin: ${margin}`};
+  ${({ color, theme }) => color && `color: ${theme.colors[color]}`};
 `;
 
 export const Flex = styled.div<{

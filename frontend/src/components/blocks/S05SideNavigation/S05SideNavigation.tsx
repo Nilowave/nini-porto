@@ -44,7 +44,7 @@ export const S05SideNavigation = ({ data }: S05SideNavigationProps): ReactElemen
 
           const iconUrl = getImageBySize(icon, 'small');
           const menuItem: MenuItem = {
-            anchor: `#${slugify(item.Caption, { lower: true })}`,
+            anchor: item.Caption && `#${slugify(item.Caption, { lower: true })}`,
             icon: iconUrl,
             title: item.Caption,
           };

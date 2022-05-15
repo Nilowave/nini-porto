@@ -16,7 +16,17 @@ interface HomeProps extends InferGetStaticPropsType<typeof getStaticProps> {
   setTheme: Dispatch<SetStateAction<ThemeType>>;
 }
 
-const Home = ({ header, blocks, profile, social, footer, theme, seo, ...props }: HomeProps) => {
+const Home = ({
+  header,
+  blocks,
+  profile,
+  social,
+  footer,
+  theme,
+  seo,
+  appointments,
+  ...props
+}: HomeProps) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const isThemeReady = useRef(false);
@@ -42,7 +52,6 @@ const Home = ({ header, blocks, profile, social, footer, theme, seo, ...props }:
 
   useEffect(() => {
     setIsLoading(false);
-    console.log('open');
   }, []);
 
   if (isLoading) return <A00Loading />;
@@ -87,6 +96,7 @@ export const getStaticProps = async () => {
   const PROFILE_PATH = 's03-profile-card?populate=deep';
   const SOCIAL_PATH = 's04-social-sharing?populate=deep';
   const BLOCKS_PATH = 'blocks?populate=deep';
+  const BOOKINGS_PATH = 'appointments';
   const THEME_PATH = 'theme';
   const SEO_PATH = 'seo';
 
@@ -96,6 +106,7 @@ export const getStaticProps = async () => {
   const social = (await api.get(SOCIAL_PATH)) as ApiAttributes;
   const theme = (await api.get(THEME_PATH)) as ApiAttributes;
   const seo = (await api.get(SEO_PATH)) as ApiAttributes;
+  const appointments = (await api.get(BOOKINGS_PATH)) as ApiAttributes;
 
   const blocks = (
     (await api.get(BLOCKS_PATH, {
@@ -114,6 +125,7 @@ export const getStaticProps = async () => {
       footer,
       theme,
       seo,
+      appointments,
     },
     revalidate: 10,
   };

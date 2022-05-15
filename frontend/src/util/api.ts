@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-export type ApiAttributes = {
+export type ApiAttributes<T = {}> = {
   createdAt: string;
   updatedAt: string;
   id: number;
   [key: string]: any;
+  attributes?: T;
 };
 
 export type ApiData = {
@@ -23,9 +24,18 @@ type ApiConfig = {
 };
 
 export const api = {
+  post: async (url: string, body: any, config?: ApiConfig) => {
+    const axi = axios.create({
+      baseURL: process.env.NEXT_PUBLIC_API_HOST,
+    });
+
+    const response = await axi.post(url, body);
+
+    return response;
+  },
   get: async (url: string, config?: ApiConfig) => {
     const axi = axios.create({
-      baseURL: process.env.API_HOST,
+      baseURL: process.env.NEXT_PUBLIC_API_HOST,
     });
 
     axi.interceptors.response.use(
@@ -40,8 +50,6 @@ export const api = {
 
     const response: ApiData | ApiCollection = { ...(await axi.get(url)).data }.data;
 
-    // console.log(response);
-
     if (config && config.isCollection) {
       const collection = (response as ApiCollection).map((item) => ({
         ...item.attributes,
@@ -50,6 +58,8 @@ export const api = {
       return collection as ApiCollection;
     }
 
-    return ((response as ApiData) || {}).attributes || null;
+    const returnValue = ((response as ApiData) || {}).attributes || response || null;
+
+    return returnValue;
   },
 };
