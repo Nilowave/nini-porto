@@ -60,7 +60,7 @@ module.exports = createCoreController(
 
       await strapi.plugins["email"].services.email.sendTemplatedEmail(
         {
-          to: email,
+          to: "info@nmeulens.com",
         },
         bookingTemplate,
         {

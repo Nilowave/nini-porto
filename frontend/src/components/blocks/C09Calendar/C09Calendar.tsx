@@ -205,6 +205,7 @@ export const C09Calendar = ({ data }: C09CalendarProps): ReactElement => {
 
   const handleCtaClick = useCallback(() => {
     setModalData(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate]);
 
   const handleCloseModal = () => {
@@ -221,13 +222,9 @@ export const C09Calendar = ({ data }: C09CalendarProps): ReactElement => {
   }, [success]);
 
   useEffect(() => {
-    // api.get('appointments').then((data) => {
-    //   if (data) {
-    //     setAppointments(data as AppointmentCollection);
-    //   }
-    // });
     handleClickToday();
     setContextData({ cta: { action: handleCtaClick } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
