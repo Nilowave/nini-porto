@@ -41,6 +41,7 @@ export const MakeAppointment = ({
   confirmationMessage,
   setSuccess,
 }: MakeAppointmentProps): ReactElement => {
+  const [isLoading, setIsLoading] = useState(false);
   const [formSuccess, setFormSuccess] = useState<boolean | null>(null);
   const [timeValue, setTimeValue] = useState(0);
   const [scheduleDate, setScheduleDate] = useState<Date>(date);
@@ -66,6 +67,7 @@ export const MakeAppointment = ({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
     const target = event.target as HTMLFormElement;
     const elements: FormElements = target.elements as FormElements;
     const hourIndex = parseInt(elements.time.value);
@@ -89,6 +91,7 @@ export const MakeAppointment = ({
       setSuccess(false);
       setFormSuccess(false);
     }
+    setIsLoading(false);
   };
 
   const handleTimeChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -151,7 +154,12 @@ export const MakeAppointment = ({
                 ))}
               </S.StyledSelect>
             </S.Block>
-            <S.SubmitButton title="Schedule appointment" type="submit" icon="Event Available" />
+            <S.SubmitButton
+              disabled={isLoading}
+              title="Schedule appointment"
+              type="submit"
+              icon="Event Available"
+            />
           </Flex>
         </S.StyledForm>
       )}

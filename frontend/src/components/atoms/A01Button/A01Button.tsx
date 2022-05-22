@@ -7,6 +7,7 @@ interface A01ButtonProps {
   icon?: string;
   outline?: boolean;
   big?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
   renderAs?: string;
   className?: string;
@@ -19,6 +20,7 @@ export const A01Button = ({
   outline,
   big,
   icon,
+  disabled,
   renderAs = 'button',
   type = 'button',
   className,
@@ -32,6 +34,7 @@ export const A01Button = ({
       big={big}
       as={renderAs as unknown as undefined}
       onClick={onClick}
+      disabled={disabled}
     >
       {icon && (
         <S.StyledIcon className="material-symbols-outlined filled">

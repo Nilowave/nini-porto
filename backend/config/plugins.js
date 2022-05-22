@@ -18,5 +18,21 @@ module.exports = ({ env }) => ({
     enabled: true,
     resolve: "src/plugins/wave-colorpicker",
   },
+  email: {
+    config: {
+      provider: "sendgrid",
+      providerOptions: {
+        apiKey: env("SENDGRID_API_KEY"),
+      },
+      settings: {
+        defaultFrom: {
+          email: "info@nmeulens.com",
+          name: "Nini Meulens",
+        },
+        defaultReplyTo: "info@nmeulens.com",
+        testAddress: "mockingbird87@gmail.com",
+      },
+    },
+  },
   // ...
 });

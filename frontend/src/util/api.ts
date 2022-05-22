@@ -38,12 +38,15 @@ export const api = {
       baseURL: process.env.NEXT_PUBLIC_API_HOST,
     });
 
+    console.log('get -', url);
+
     axi.interceptors.response.use(
       (response) => {
         return response || {};
       },
       (error) => {
-        console.log(error.response.statusText);
+        console.log('error -', url);
+        console.log(error.response);
         return {};
       },
     );
