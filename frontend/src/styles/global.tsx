@@ -100,6 +100,26 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.primary};
   }
 
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    50% {
+      
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+  }
+
+  .pulse {
+    animation: pulse 0.5s ease infinite;
+  }
+
   .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,

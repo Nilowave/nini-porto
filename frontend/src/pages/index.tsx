@@ -79,7 +79,7 @@ const Home = ({
             <Wrapper>
               <S05SideNavigation data={blocks} />
               <S03ProfileCard data={profile} social={social} />
-              <T01Blocks blocks={blocks} />
+              <T01Blocks blocks={blocks} structureData={{ social }} />
             </Wrapper>
           </Container>
         </DesktopPadding>

@@ -37,7 +37,9 @@ export const A01Button = ({
       disabled={disabled}
     >
       {icon && (
-        <S.StyledIcon className="material-symbols-outlined filled">
+        <S.StyledIcon
+          className={`material-symbols-outlined filled ${icon === 'pending' ? 'pulse' : ''}`}
+        >
           {icon.trim().toLowerCase().replace(/ /g, '_')}
         </S.StyledIcon>
       )}

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { MediaQuery } from '../data/enum/mediaQuery';
 import { ColorKey } from './theme/default';
 import { typeStyle, TypeStyleType } from './typeStyle';
@@ -37,6 +37,11 @@ export const RichText = styled.div`
   ${typeStyle.body01};
   white-space: pre-line;
   width: 100%;
+  word-break: break-all;
+
+  a {
+    text-decoration: underline;
+  }
 `;
 
 export const BlockComponent = styled.div`
@@ -58,29 +63,59 @@ export const SubTitle = styled.h3`
   margin-bottom: 3.4rem;
 `;
 
-export const Text = styled.p<{
+type TextProps = {
   type: keyof TypeStyleType;
   size?: string;
   margin?: string;
   color?: ColorKey;
-}>`
+};
+
+export const Text = styled.p<TextProps>`
   ${({ type }) => typeStyle[type]};
   ${({ size }) => size && `font-size: ${size}`};
   ${({ margin }) => margin && `margin: ${margin}`};
   ${({ color, theme }) => color && `color: ${theme.colors[color]}`};
 `;
 
-export const Flex = styled.div<{
+type FlexProps = {
   flexDirection?: string;
   flexWrap?: string;
   gap?: string;
   alignItems?: string;
   justifyContent?: string;
-}>`
+};
+
+export const Flex = styled.div<FlexProps>`
   display: flex;
   ${({ flexDirection }) => flexDirection && `flex-direction: ${flexDirection};`};
   ${({ flexWrap }) => flexWrap && `flex-wrap: ${flexWrap};`};
   ${({ gap }) => gap && `gap: ${gap};`};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`};
   ${({ justifyContent }) => justifyContent && `justify-content: ${justifyContent};`};
+`;
+
+const inputStyles = css`
+  border-radius: 5px;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.offWhite};
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1.5rem;
+  display: block;
+  flex: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export const Input = styled.input`
+  ${inputStyles};
+`;
+
+export const TextArea = styled.textarea`
+  ${inputStyles};
+  min-height: 18rem;
+  resize: none;
 `;

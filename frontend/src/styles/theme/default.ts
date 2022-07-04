@@ -9,6 +9,7 @@ export const colors = {
   background: '#f3f3f3',
   secondary: '#e1e1e1',
   primary: '#c0e3e7',
+  red: '#ff0000',
 };
 
 export const theme = {

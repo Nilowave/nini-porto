@@ -5,11 +5,12 @@ import { ApiAttributes } from 'util/api';
 
 interface S04SocialSharingProps {
   data: ApiAttributes;
+  className?: string;
 }
 
-export const S04SocialSharing = ({ data }: S04SocialSharingProps): ReactElement => {
+export const S04SocialSharing = ({ data, className }: S04SocialSharingProps): ReactElement => {
   return (
-    <S.StyledS04SocialSharing>
+    <S.StyledS04SocialSharing className={className}>
       {data.Platforms.map((platform: any) => (
         <S.StyledLink
           key={platform.Icon}

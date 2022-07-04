@@ -32,11 +32,10 @@ export type Block = {
 
 interface T01BlocksProps {
   blocks: ApiCollection;
+  structureData: any;
 }
 
-export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
-  const contextData = {};
-
+export const T01Blocks = ({ blocks, structureData }: T01BlocksProps): ReactElement => {
   const blocksRef = useRef<Array<HTMLElement>>([]);
 
   const renderBlock = (item: ApiAttributes) => {
@@ -64,7 +63,11 @@ export const T01Blocks = ({ blocks }: T01BlocksProps): ReactElement => {
           const componentKey = component.__component.split('.')[1];
           const BlockComponent = blockComponents[componentKey as keyof typeof blockComponents];
           return BlockComponent ? (
-            <BlockComponent data={component} key={`comp-${JSON.stringify(component)}-${index}`} />
+            <BlockComponent
+              data={component}
+              structureData={structureData}
+              key={`comp-${JSON.stringify(component)}-${index}`}
+            />
           ) : (
             <p key={`comp-${JSON.stringify(component)}-${index}`}>{component.__component}</p>
           );

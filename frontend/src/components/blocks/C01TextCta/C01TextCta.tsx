@@ -17,6 +17,7 @@ type C01Data = {
 };
 interface C01TextCtaProps {
   data: C01Data;
+  structureData?: any;
 }
 
 export const C01TextCta = ({ data }: C01TextCtaProps): ReactElement => {
