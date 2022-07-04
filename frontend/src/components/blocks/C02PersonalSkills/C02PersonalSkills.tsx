@@ -1,8 +1,10 @@
 import { M01Progress } from 'components/molecules/M01Progress/M01Progress';
 import { M02MultiColumn } from 'components/molecules/M02MultiColumn/M02MultiColumn';
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 import { Flex } from 'styles/layout';
 import * as S from './C02PersonalSkills.styles';
+import { scrollTransition } from 'util/scrollTransition';
+import { baseComponentTransition } from 'util/baseComponentTransition';
 
 enum ContactTitle {
   Address = 'Address',
@@ -17,10 +19,18 @@ interface C02PersonalSkillsProps {
 }
 
 export const C02PersonalSkills = ({ data }: C02PersonalSkillsProps): ReactElement => {
+  const componentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<Array<HTMLElement>>([]);
   const titles = [data.PrimaryTitle, data.SecondaryTitle].filter((title) => title);
 
+  useEffect(() => {
+    if (componentRef.current) {
+      scrollTransition(componentRef.current, baseComponentTransition(contentRef.current));
+    }
+  }, [contentRef]);
+
   return (
-    <S.StyledC02PersonalSkills>
+    <S.StyledC02PersonalSkills ref={componentRef}>
       <M02MultiColumn titles={titles}>
         {data.Contact && (
           <S.ContactWrapper>
@@ -33,11 +43,12 @@ export const C02PersonalSkills = ({ data }: C02PersonalSkillsProps): ReactElemen
                     gap="1rem"
                     alignItems="center"
                     flexWrap="wrap"
+                    ref={(el: HTMLLIElement) => contentRef.current.push(el)}
                   >
                     <S.ContactTitle>
                       {ContactTitle[item as keyof typeof ContactTitle]}
                     </S.ContactTitle>
-                    <S.ContactValue>{data.Contact[item]}</S.ContactValue>
+                    <S.ContactValue dangerouslySetInnerHTML={{ __html: data.Contact[item] }} />
                   </S.ContactItem>
                 ),
             )}
@@ -52,6 +63,7 @@ export const C02PersonalSkills = ({ data }: C02PersonalSkillsProps): ReactElemen
                 title={item.Title}
                 level={item.Percentage}
                 type="dots"
+                refitem={(el: HTMLDivElement) => contentRef.current.push(el)}
               />
             ))}
           </Flex>

@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ReactElement, useMemo, useState } from 'react';
 import * as S from './C05ImageGallery.styles';
 import { Project } from './components/Project/Project';
+import { ProjectDetails } from './components/ProjectDetails/ProjectDetails';
 
 export type Gallery = {
   Title: string;
@@ -87,7 +88,11 @@ export const C05ImageGallery = ({ data }: C05ImageGalleryProps): ReactElement =>
         </AnimatePresence>
       </S.GalleryWrapper>
       <AnimatePresence initial={false}>
-        {modalData && <M03Modal data={modalData} onClose={closeModal} setData={setModalData} />}
+        {modalData && (
+          <M03Modal onClose={closeModal}>
+            <ProjectDetails data={modalData} setData={setModalData} />
+          </M03Modal>
+        )}
       </AnimatePresence>
     </S.StyledC05ImageGallery>
   );

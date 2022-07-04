@@ -7,7 +7,6 @@ export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean 
   padding: 1rem 2.5rem;
   border-radius: 3.5rem;
   box-shadow: transparent 0 0 0;
-  transition: box-shadow 0.3s ease;
   background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   align-items: center;
@@ -15,6 +14,13 @@ export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean 
   gap: 1rem;
   color: ${({ theme }) =>
     useContrastingTextColor(theme.colors.primary, theme.colors.white, theme.colors.black)};
+  transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+
+  &:disabled {
+    color: grey;
+    background-color: ${({ theme }) => theme.colors.cottonGrey};
+    cursor: not-allowed;
+  }
 
   ${({ big }) =>
     big &&
@@ -32,8 +38,10 @@ export const StyledA01Button = styled.button<{ outline?: boolean; big?: boolean 
     `}
 
   @media (hover: hover) {
-    &:hover {
-      box-shadow: -1px 2px 4px rgb(0 0 0 / 25%);
+    &:not(:disabled) {
+      &:hover {
+        box-shadow: -1px 2px 4px rgb(0 0 0 / 25%);
+      }
     }
   }
 `;

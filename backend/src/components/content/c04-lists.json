@@ -16,9 +16,6 @@
     "SecondaryTitle": {
       "type": "string"
     },
-    "SecondaryList": {
-      "type": "richtext"
-    },
     "IconList": {
       "type": "component",
       "repeatable": true,

@@ -1,6 +1,6 @@
 import { MediaQuery } from 'data/enum/mediaQuery';
 import styled from 'styled-components';
-import { BlockComponent, Flex } from 'styles/layout';
+import { BlockComponent, Flex, RichText } from 'styles/layout';
 import { typeStyle } from 'styles/typeStyle';
 import { respondTo } from 'styles/util/respondTo';
 
@@ -37,7 +37,7 @@ export const ContactTitle = styled.span`
   }
 `;
 
-export const ContactValue = styled.span`
+export const ContactValue = styled(RichText)`
   ${typeStyle.body01};
   font-size: 1.4rem;
   flex: 1;

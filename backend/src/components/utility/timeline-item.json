@@ -2,7 +2,8 @@
   "collectionName": "components_utility_timeline_items",
   "info": {
     "displayName": "Timeline Item",
-    "icon": "feather-alt"
+    "icon": "feather-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,11 +14,12 @@
       "type": "string"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Description": {
       "type": "richtext"
@@ -27,6 +29,13 @@
     },
     "ToDate": {
       "type": "date"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Current": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

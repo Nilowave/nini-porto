@@ -15,6 +15,9 @@
     },
     "ShareButton": {
       "type": "boolean"
+    },
+    "Icon": {
+      "type": "string"
     }
   }
 }

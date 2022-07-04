@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { typeStyle } from 'styles/typeStyle';
 import { useContrastingTextColor } from 'util/useContrastingTextColor';
 import { respondTo } from 'styles/util/respondTo';
+import { RichText } from 'styles/layout';
 
 export const StyledC06Timeline = styled.div`
   padding: 0 2rem;
@@ -108,10 +109,8 @@ export const TimeBlock = styled.div`
 export const Title = styled.h3`
   ${typeStyle.heading04};
   grid-area: title;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-top: 1.6rem;
+  line-height: 1.5;
 
   ${respondTo(MediaQuery.MIN_1024)} {
     margin: 0;
@@ -121,11 +120,30 @@ export const Title = styled.h3`
 
 export const SubTitle = styled.h4`
   ${typeStyle.body01};
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   color: ${({ theme }) => theme.colors.grey};
 `;
 
-export const Text = styled.p`
+export const Location = styled.span`
+  ${typeStyle.body02};
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  padding-left: 2.4rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: ${({ theme }) => theme.colors.primary};
+    left: 0.8rem;
+    top: 0.8rem;
+  }
+`;
+
+export const Text = styled(RichText)`
   ${typeStyle.body02};
 `;
 

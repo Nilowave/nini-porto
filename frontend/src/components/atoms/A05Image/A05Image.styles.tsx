@@ -6,6 +6,7 @@ export const StyledA05Image = styled.div<{
   autoWidth?: boolean;
   autoHeight?: boolean;
   width?: string | number;
+  height?: string | number;
   layout?: string;
 }>`
   position: relative;
@@ -20,6 +21,11 @@ export const StyledA05Image = styled.div<{
     width &&
     layout != 'responsive' &&
     `width: ${typeof width === 'string' ? width : `${width}px`}`};
+
+  ${({ height, layout }) =>
+    height &&
+    layout != 'responsive' &&
+    `height: ${typeof height === 'string' ? height : `${height}px`}`};
 
   ${({ rounded }) =>
     rounded && (rounded === true ? 'border-radius: 50%;' : `border-radius: ${rounded}px;`)};

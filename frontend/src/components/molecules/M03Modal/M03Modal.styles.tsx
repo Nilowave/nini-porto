@@ -2,8 +2,6 @@ import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 import { respondTo } from 'styles/util/respondTo';
 import { MediaQuery } from 'data/enum/mediaQuery';
-import { typeStyle } from 'styles/typeStyle';
-import { Flex } from 'styles/layout';
 
 const appear = keyframes`
   0% {
@@ -23,8 +21,12 @@ export const StyledM03Modal = styled(motion.div)`
   z-index: 100;
   top: 0;
   left: 0;
-  padding: 6rem 3rem;
+  padding: 5rem 2rem;
   overflow-y: auto;
+
+  ${respondTo(MediaQuery.MIN_768)} {
+    padding: 6rem 3rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -51,16 +53,17 @@ export const MiddleWrapper = styled.div`
   text-align: center;
 `;
 export const ContentWrapper = styled(motion.div)`
-  padding: 5rem;
+  padding: 2rem;
   margin: 0 auto;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.colors.white};
   animation: ${appear} 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 
   ${respondTo(MediaQuery.MIN_480)} {
-    max-width: 43rem;
+    max-width: 45rem;
   }
   ${respondTo(MediaQuery.MIN_768)} {
+    padding: 5rem;
     max-width: calc(100% - 4rem);
   }
   ${respondTo(MediaQuery.MIN_1024)} {
@@ -69,41 +72,12 @@ export const ContentWrapper = styled(motion.div)`
   ${respondTo(MediaQuery.MIN_1280)} {
     max-width: 120rem;
   }
-`;
-export const Content = styled(motion.div)`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  position: relative;
-  text-align: left;
-  width: 100%;
-`;
-
-export const Title = styled.h2`
-  ${typeStyle.heading01};
-  text-transform: uppercase;
-`;
-
-export const SubTitle = styled.p`
-  ${typeStyle.bold};
-  opacity: 0.6;
-  margin-top: 0.5rem;
-`;
-
-export const Bold = styled.p`
-  ${typeStyle.bold};
-`;
-
-export const Meta = styled.div`
-  display: grid;
-  grid-template-columns: 15rem 1fr;
-  row-gap: 0.5rem;
-  font-size: 1.4rem;
-  align-items: center;
-`;
-
-export const Projects = styled.div`
-  margin-top: auto;
+  ${respondTo(MediaQuery.MIN_1440)} {
+    max-width: 140rem;
+  }
+  ${respondTo(MediaQuery.MIN_1920)} {
+    max-width: 150rem;
+  }
 `;
 
 export const Close = styled.div`

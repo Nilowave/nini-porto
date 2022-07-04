@@ -3,4 +3,5 @@ export enum Icons {
   TWITTER = 'twitter',
   INSTAGRAM = 'instagram',
   LINKEDIN = 'linkedin',
+  COPY_LINK = 'copy-link',
 }

@@ -11,6 +11,48 @@
       "type": "component",
       "repeatable": true,
       "component": "utility.date-range"
+    },
+    "TimeFrom": {
+      "type": "time",
+      "required": true
+    },
+    "TimeTo": {
+      "type": "time",
+      "required": true
+    },
+    "Timezone": {
+      "type": "enumeration",
+      "enum": [
+        "GMT",
+        "+1:00",
+        "GMT+2:00 (Amsterdam)",
+        "GMT+3:00",
+        "GMT+3:30",
+        "GMT+4:00",
+        "GMT+5:00",
+        "GMT+5:30",
+        "GMT+6:00",
+        "GMT+7:00",
+        "GMT+8:00",
+        "GMT+9:00",
+        "GMT+9:30",
+        "GMT+10:00",
+        "GMT+11:00",
+        "GMT+12:00"
+      ],
+      "default": "GMT+2:00 (Amsterdam)",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Confirmation": {
+      "type": "richtext"
     }
   }
 }

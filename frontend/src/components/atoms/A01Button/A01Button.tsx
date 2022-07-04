@@ -7,9 +7,11 @@ interface A01ButtonProps {
   icon?: string;
   outline?: boolean;
   big?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
   renderAs?: string;
   className?: string;
+  type?: 'button' | 'submit';
 }
 
 export const A01Button = ({
@@ -18,7 +20,9 @@ export const A01Button = ({
   outline,
   big,
   icon,
+  disabled,
   renderAs = 'button',
+  type = 'button',
   className,
   onClick,
 }: A01ButtonProps): ReactElement => {
@@ -26,10 +30,19 @@ export const A01Button = ({
     <S.StyledA01Button
       className={className}
       outline={outline}
+      type={type}
       big={big}
       as={renderAs as unknown as undefined}
+      onClick={onClick}
+      disabled={disabled}
     >
-      {icon && <S.StyledIcon className="material-symbols-outlined filled">{icon}</S.StyledIcon>}
+      {icon && (
+        <S.StyledIcon
+          className={`material-symbols-outlined filled ${icon === 'pending' ? 'pulse' : ''}`}
+        >
+          {icon.trim().toLowerCase().replace(/ /g, '_')}
+        </S.StyledIcon>
+      )}
       {title}
     </S.StyledA01Button>
   );

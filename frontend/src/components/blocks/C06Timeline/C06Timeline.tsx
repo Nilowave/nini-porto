@@ -10,7 +10,9 @@ type TimelineData = {
   ToDate: string;
   Title: string;
   Subtitle?: string;
+  Location?: string;
   Image?: ImageAsset;
+  Current: boolean;
 };
 
 interface C06TimelineProps {
@@ -25,7 +27,7 @@ export const C06Timeline = ({ data }: C06TimelineProps): ReactElement => {
     <S.StyledC06Timeline>
       {data.Timeline.map((item) => {
         const yearFrom = new Date(item.FromDate).getFullYear();
-        const yearTo = new Date(item.ToDate).getFullYear();
+        const yearTo = item.Current ? 'Present' : new Date(item.ToDate).getFullYear();
         const image = item.Image && getImageBySize(item.Image, 'small');
 
         return (
@@ -43,8 +45,12 @@ export const C06Timeline = ({ data }: C06TimelineProps): ReactElement => {
                   autoWidth
                 />
               )}
-              {item.Subtitle && <S.SubTitle>{item.Subtitle}</S.SubTitle>}
-              <S.Text>{item.Description}</S.Text>
+              {(item.Subtitle || item.Location) && (
+                <S.SubTitle>
+                  {item.Subtitle} {item.Location && <S.Location>{item.Location}</S.Location>}
+                </S.SubTitle>
+              )}
+              <S.Text dangerouslySetInnerHTML={{ __html: item.Description }} />
             </S.ContentWrapper>
           </S.TimeBlock>
         );
