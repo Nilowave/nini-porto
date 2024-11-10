@@ -1,2 +1,5 @@
 [build]
 nixpacksVersion = "1.13.0"
+
+[env]
+NODE_VERSION = "14.21.3"
