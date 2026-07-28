@@ -9,14 +9,13 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
     "@strapi/plugin-i18n": "4.1.8",
     "@strapi/plugin-users-permissions": "4.1.8",
     "@strapi/provider-email-sendgrid": "^4.1.11",
     "@strapi/provider-upload-cloudinary": "^4.1.9",
     "@strapi/strapi": "4.1.8",
-    "better-sqlite3": "^8.6.0",
+    "better-sqlite3": "^8.7.0",
     "date-fns": "^2.28.0",
     "pg": "^8.7.3",
     "pg-connection-string": "^2.5.0",
