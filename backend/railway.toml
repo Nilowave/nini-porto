@@ -1,5 +1,7 @@
 [build]
+nixPkgs = ["python3", "gcc", "gnumake"]
 
 [env]
 NODE_VERSION = "18"
-NIXPACKS_INSTALL_CMD = "yarn install --frozen-lockfile --ignore-engines"
+NIXPACKS_INSTALL_CMD = "yarn install --ignore-engines"
+
