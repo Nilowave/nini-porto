@@ -1,7 +1,7 @@
 {
   "phases": {
     "setup": {
-      "nixPkgs": ["nodejs-18_x", "yarn", "python3", "gcc", "gnumake"]
+      "nixPkgs": ["nodejs_18", "yarn", "python3", "gcc", "gnumake"]
     },
     "install": {
       "cmd": "yarn install --ignore-engines"
