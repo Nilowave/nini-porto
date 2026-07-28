@@ -1,0 +1,13 @@
+{
+  "phases": {
+    "setup": {
+      "nixPkgs": ["python3", "gcc", "gnumake"]
+    },
+    "install": {
+      "cmd": "yarn install --ignore-engines"
+    },
+    "build": {
+      "cmd": "yarn build"
+    }
+  }
+}
