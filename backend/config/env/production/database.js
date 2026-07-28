@@ -1,26 +1,37 @@
-const parse = require("pg-connection-string").parse;
-
 module.exports = ({ env }) => {
-  const dbUrl = env("DATABASE_URL", "");
-  const config = dbUrl ? parse(dbUrl) : {};
+  const connectionString = env("DATABASE_URL", env("DATABASE_PRIVATE_URL", ""));
+
+  if (connectionString) {
+    return {
+      connection: {
+        client: "postgres",
+        connection: {
+          connectionString,
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        },
+        debug: false,
+      },
+    };
+  }
 
   return {
     connection: {
       client: "postgres",
       connection: {
-        host: config.host || env("DATABASE_HOST", "127.0.0.1"),
-        port: config.port || env.int("DATABASE_PORT", 5432),
-        database: config.database || env("DATABASE_NAME", "strapi"),
-        user: config.user || env("DATABASE_USERNAME", "strapi"),
-        password: config.password || env("DATABASE_PASSWORD", "strapi"),
-        ssl: env.bool("DATABASE_SSL", false)
-          ? { rejectUnauthorized: false }
-          : dbUrl
-          ? { rejectUnauthorized: false }
-          : false,
+        host: env("PGHOST", env("DATABASE_HOST", "127.0.0.1")),
+        port: env.int("PGPORT", env.int("DATABASE_PORT", 5432)),
+        database: env("PGDATABASE", env("DATABASE_NAME", "strapi")),
+        user: env("PGUSER", env("DATABASE_USERNAME", "strapi")),
+        password: env("PGPASSWORD", env("DATABASE_PASSWORD", "strapi")),
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
       debug: false,
     },
   };
 };
+
 
