@@ -90,12 +90,33 @@ async function syncDb(strapi) {
           await knex.raw(`CREATE TABLE IF NOT EXISTS "${targetTable}" (LIKE "${sourceTable}" INCLUDING ALL);`).catch(() => {});
           await knex.raw(`INSERT INTO "${targetTable}" SELECT * FROM "${sourceTable}" ON CONFLICT DO NOTHING;`).catch(() => {});
         }
+
+        // 5. Auto-sync singular component tables in Postgres
+        const singularMap = {
+          'components_content_c01_text_cta': 'components_content_c01_text_ctas',
+          'components_content_c02_personal': 'components_content_c02_personals',
+          'components_content_c03_skill_set': 'components_content_c03_skill_sets',
+          'components_content_c05_image_gallery': 'components_content_c05_image_galleries',
+          'components_content_c06_timeline': 'components_content_c06_timelines',
+          'components_content_c07_references': 'components_content_c07_references',
+          'components_content_c08_interests': 'components_content_c08_interests',
+          'components_content_c09_calendar': 'components_content_c09_calendars',
+          'components_content_c10_contact_form': 'components_content_c10_contact_forms',
+        };
+        for (const [singular, plural] of Object.entries(singularMap)) {
+          const hasPlural = await knex.schema.hasTable(plural);
+          if (hasPlural) {
+            await knex.raw(`CREATE TABLE IF NOT EXISTS "${singular}" (LIKE "${plural}" INCLUDING ALL);`).catch(() => {});
+            await knex.raw(`INSERT INTO "${singular}" SELECT * FROM "${plural}" ON CONFLICT DO NOTHING;`).catch(() => {});
+          }
+        }
       }
     }
   } catch (err) {
     strapi.log.error('DB sync helper error:', err);
   }
 }
+
 
 
 
