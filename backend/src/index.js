@@ -76,12 +76,27 @@ async function syncDb(strapi) {
           ON CONFLICT DO NOTHING;
         `).catch(() => {});
         strapi.log.info('Populated files_related_morphs from files_related_mph');
+      // 4. Auto-sync truncated _cmps component tables in Postgres
+      if (isPostgres) {
+        const cmpsResult = await knex.raw(`
+          SELECT table_name 
+          FROM information_schema.tables 
+          WHERE table_schema = 'public' AND table_name LIKE '%_cmps';
+        `).catch(() => ({ rows: [] }));
+
+        for (const row of (cmpsResult.rows || [])) {
+          const sourceTable = row.table_name;
+          const targetTable = sourceTable.replace(/_cmps$/, '_components');
+          await knex.raw(`CREATE TABLE IF NOT EXISTS "${targetTable}" (LIKE "${sourceTable}" INCLUDING ALL);`).catch(() => {});
+          await knex.raw(`INSERT INTO "${targetTable}" SELECT * FROM "${sourceTable}" ON CONFLICT DO NOTHING;`).catch(() => {});
+        }
       }
     }
   } catch (err) {
     strapi.log.error('DB sync helper error:', err);
   }
 }
+
 
 
 module.exports = {
