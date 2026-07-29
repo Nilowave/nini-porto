@@ -54,10 +54,35 @@ async function syncDb(strapi) {
       });
       strapi.log.info('PostgreSQL primary key sequences synchronized successfully');
     }
+
+    // 3. Auto-create missing files_related_morphs table if truncated in Postgres
+    const hasMorphsTable = await knex.schema.hasTable('files_related_morphs');
+    if (!hasMorphsTable) {
+      await knex.schema.createTable('files_related_morphs', (table) => {
+        table.increments('id');
+        table.integer('file_id');
+        table.integer('related_id');
+        table.string('related_type');
+        table.string('field');
+        table.integer('order');
+      });
+      strapi.log.info('Auto-created missing files_related_morphs table');
+
+      const hasMph = await knex.schema.hasTable('files_related_mph');
+      if (hasMph) {
+        await knex.raw(`
+          INSERT INTO files_related_morphs (file_id, related_id, related_type, field, "order")
+          SELECT file_id, related_id, related_type, field, "order" FROM files_related_mph
+          ON CONFLICT DO NOTHING;
+        `).catch(() => {});
+        strapi.log.info('Populated files_related_morphs from files_related_mph');
+      }
+    }
   } catch (err) {
     strapi.log.error('DB sync helper error:', err);
   }
 }
+
 
 module.exports = {
   async register({ strapi }) {
