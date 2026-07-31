@@ -23,10 +23,12 @@ type ApiConfig = {
   isCollection: boolean;
 };
 
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST || 'https://cms.nmeulens.com/api/';
+
 export const api = {
   post: async (url: string, body: any, config?: ApiConfig) => {
     const axi = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_HOST,
+      baseURL: API_HOST,
     });
 
     const response = await axi.post(url, body);
@@ -35,7 +37,7 @@ export const api = {
   },
   get: async (url: string, config?: ApiConfig) => {
     const axi = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_HOST,
+      baseURL: API_HOST,
     });
 
     axi.interceptors.response.use(
